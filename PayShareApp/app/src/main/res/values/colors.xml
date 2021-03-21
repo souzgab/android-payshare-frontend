@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="preto_payshare">#2D2D2D</color>
+    <color name="colorPrimary">#5E35B1</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#D81B60</color>
     <color name="verde_payshare">#1CDC6E</color>
+    <color name="preto_payshare">#2D2D2D</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

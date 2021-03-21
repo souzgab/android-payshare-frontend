@@ -4,84 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/preto_payshare"
+    android:background="@drawable/bg_layer_gradient"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".HomeActivity">
 
     <ImageView
-        android:id="@+id/login_logo"
+        android:id="@+id/logo_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:src="@drawable/payshare" />
 
     <TextView
-        android:id="@+id/primeira_frase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:fontFamily="sans-serif"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="@string/compartilhe_seus_pagamentos"
+        android:text="@string/frase1_home"
         android:textColor="@color/verde_payshare"
-        android:textSize="@dimen/medium_title"
+        android:textSize="@dimen/large_title"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="5dp"
-        android:fontFamily="sans-serif"
+        android:layout_marginEnd="4dp"
         android:gravity="center"
-        android:text="@string/frase_home"
+        android:text="@string/frase2_home"
         android:textColor="@color/white"
-        android:textSize="@dimen/small_title"
+        android:textSize="@dimen/medium_title"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/btn_cadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_button_normal"
+        android:text="@string/cadastro"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_button_normal"
+        android:text="@string/login"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button_google"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
-        android:background="@drawable/bg_button_normal"
-        android:fontFamily="sans-serif"
-        android:text="@string/login"
-        android:textColor="@color/black" />
-
-    <Button
-        android:id="@+id/cadastro_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/bg_button_normal"
-        android:fontFamily="sans-serif"
-        android:includeFontPadding="false"
-        android:text="@string/cadastro"
-        android:textColor="@color/black" />
-
-    <Button
-        android:id="@+id/google_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
         android:background="@drawable/bg_button_clear"
         android:drawableLeft="@drawable/google"
-        android:fontFamily="sans-serif"
-        android:text="@string/google"
-        android:textColor="@color/black" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/entrar_google"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
 
 </LinearLayout>
