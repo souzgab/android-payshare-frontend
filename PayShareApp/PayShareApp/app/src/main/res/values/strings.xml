@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PayShareApp</string>
+    <string name="frase1_home">Compartilhe seus pagamentos</string>
+    <string name="frase2_home">Crie sua lobby, convide seus amigos. É fácil, rápido e seguro.</string>
+    <string name="cadastro">Cadastre-se</string>
+    <string name="login">Login</string>
+    <string name="entrar_google">Entrar com a conta Google</string>
+    <string name="email">Email*</string>
+    <string name="senha">Senha*</string>
+    <string name="entrar">Entrar</string>
+    <string name="esqueci_senha">Esqueci minha senha</string>
+    <string name="sem_cadastro">Ainda não possui cadastro?</string>
+    <string name="clique_aqui">Clique aqui</string>
+    <string name="nome">Nome*</string>
+    <string name="cpf">CPF*</string>
+    <string name="confirmar_senha">Confirme sua senha*</string>
+</resources>
