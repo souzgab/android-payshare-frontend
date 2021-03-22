@@ -1,4 +1,4 @@
-package co.tiagoaguiar.signupscreen
+package com.payshare.payshareapp
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
