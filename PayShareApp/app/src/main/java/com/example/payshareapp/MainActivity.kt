@@ -10,6 +10,6 @@ class MainActivity : AppCompatActivity() {
         Thread.sleep(1000)
         setTheme(R.style.Theme_AppCompat)
 
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_splash)
     }
 }
