@@ -15,6 +15,9 @@ class CadastroActivity : AppCompatActivity() {
             TelaLogin()
 
         }
+
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun TelaLogin(){
