@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/preto_payshare"
-    tools:context="com.payshare.payshareapp.HubActivity">
+    tools:context=".HubFragment">
 
     <TextView
         android:id="@+id/page_pagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="44dp"
         android:text="Boa noite"
         android:textColor="@color/white"
         android:textSize="18sp"

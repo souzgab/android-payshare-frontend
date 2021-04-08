@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/preto_payshare"
-    tools:context="com.payshare.payshareapp.PagamentoActivity">
+    tools:context=".WalletFragment">
 
     <TextView
         android:id="@+id/page_pagamento"
