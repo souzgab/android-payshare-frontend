@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/preto_payshare"
-    tools:context="com.payshare.payshareapp.ExtratoActivity">
+    tools:context=".ExtratoFragment">
 
     <TextView
         android:id="@+id/page_extrato"
@@ -73,7 +73,7 @@
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                 />
+                />
 
             <TextView
                 android:id="@+id/valor_carteira"

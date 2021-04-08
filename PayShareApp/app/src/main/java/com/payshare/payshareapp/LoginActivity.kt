@@ -10,10 +10,26 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        btn_entrar.setOnClickListener {
+
+            TelaHub()
+
+        }
+
+    }
+
+    private fun TelaHub(){
+
+        val i = Intent(this, BottomBarActivity::class.java)
+        startActivity(i)
+
     }
 
     fun viewCadastro(view:View) {
         val intent = Intent(this, CadastroActivity::class.java)
         startActivity(intent)
     }
+
+
 }

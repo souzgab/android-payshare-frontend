@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/preto_payshare"
-    tools:context="com.payshare.payshareapp.SalaPagamentoActivity">
+    tools:context=".Sala_PagamentoFragment">
 
 
     <TextView
@@ -165,11 +165,12 @@
         android:id="@+id/btn_atualizar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
         android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="48dp"
         android:background="@drawable/bg_button_normal"
         android:text="Pagar"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@+id/box_cartoes"/>
+        app:layout_constraintTop_toBottomOf="@+id/box_cartoes"
+        tools:layout_editor_absoluteX="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
