@@ -14,4 +14,14 @@
     <string name="nome">Nome*</string>
     <string name="cpf">CPF*</string>
     <string name="confirmar_senha">Confirme sua senha*</string>
+    <string name="carteira">Carteira</string>
+    <string name="adicionar_dinheiro">Adicionar dinheiro na carteira</string>
+    <string name="adicionar_pagamento">Adicionar pagamento</string>
+    <string name="saldo_carteira">200,00</string>
+    <string name="forma_pagamento">Forma de pagamento</string>
+    <string name="carta_avisos">Use o dinheiro da sua conta para realizar pagamentos compartilhado</string>
+    <string name="nome_user">Payshare Company Inc Acquisition</string>
+    <string name="telefone_user">(11)94678-0989</string>
+    <string name="email_user">payshare@gmail.com</string>
+
 </resources>

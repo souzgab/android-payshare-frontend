@@ -97,7 +97,7 @@
                 android:text="@string/esqueci_senha"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 />
 
@@ -109,7 +109,7 @@
                 android:layout_marginTop="12dp"
                 android:text="Ainda não possui cadastro?"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_esqueci_senha" />
 
@@ -123,7 +123,7 @@
                 android:text="Clique aqui "
                 android:onClick="viewCadastro"
                 android:textColor="@color/verde_payshare"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_esqueci_senha" />
 
