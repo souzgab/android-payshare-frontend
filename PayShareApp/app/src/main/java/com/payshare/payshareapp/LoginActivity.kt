@@ -34,6 +34,18 @@ class LoginActivity : AppCompatActivity() {
         if(ultimoUsuario != null) {
             redirectLobby(ultimoUsuario)
         }
+        btn_entrar.setOnClickListener {
+
+            TelaHub()
+
+        }
+
+    }
+
+    private fun TelaHub(){
+
+        val i = Intent(this, BottomBarActivity::class.java)
+        startActivity(i)
     }
 
     fun viewCadastro(view: View) {
@@ -91,5 +103,4 @@ class LoginActivity : AppCompatActivity() {
                 .putExtra("nameUser", user)
         )
     }
-
 }

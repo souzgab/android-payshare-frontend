@@ -11,7 +11,7 @@
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HubActivity"/>
+        <activity android:name=".BottomBarActivity"/>
         <activity android:name=".CadastroActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SplashActivity">
