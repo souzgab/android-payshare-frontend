@@ -8,10 +8,9 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.connection.Conexao
-import com.models.LoginPostData
-import com.models.LoginResponse
-import kotlinx.android.synthetic.main.activity_login.*
+import com.apiConnection.Conexao
+import com.apiConnection.models.dataClassAdapter.LoginPost
+import com.apiConnection.models.response.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
         if(loginValidation(email, etSenha)){
 
             loginApi.postLogin(
-                LoginPostData(email, password)
+                LoginPost(email, password)
             ).enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(
                     call: Call<LoginResponse>,

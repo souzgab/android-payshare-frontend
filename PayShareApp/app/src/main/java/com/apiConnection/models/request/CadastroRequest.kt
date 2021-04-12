@@ -1,6 +1,6 @@
-package com.resttemplate
+package com.apiConnection.models.request
 
-import com.models.CadastroResponse
+import com.apiConnection.models.response.CadastroResponse
 import retrofit2.Call
 import retrofit2.http.POST
 

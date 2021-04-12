@@ -1,12 +1,12 @@
-package com.connection
+package com.apiConnection
 
-import com.resttemplate.CadastroRequest
-import com.resttemplate.LoginRequest
+import com.apiConnection.models.request.CadastroRequest
+import com.apiConnection.models.request.LoginRequest
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object Conexao {
-    private const val backendPath: String = "http://3.211.150.177:8080/"
+    private const val backendPath: String = "http://payshare.ddns.net/"
     fun loginApi() : LoginRequest {
         return Retrofit.Builder()
             .baseUrl(backendPath)
