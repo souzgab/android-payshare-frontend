@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
         val ultimoUsuario = preferencias.getString("idUser", null)
 
         if(ultimoUsuario != null) {
-            redirectLobby(ultimoUsuario)
+            TelaHub(ultimoUsuario)
         }
 
     }
@@ -57,7 +57,10 @@ class LoginActivity : AppCompatActivity() {
                         editor.putString("idUser", data.id.toString())
                         editor.putString("nameUser", data.name)
                         editor.commit()
-                        redirectLobby(email)
+                        val ultimoUsuario = preferencias.getString("idUser", null)
+                        if(ultimoUsuario != null) {
+                            TelaHub(ultimoUsuario)
+                        }
                         Log.println(Log.INFO, "login", "log qlq coisa ae".plus(preferencias.toString()))
                     }
                 }
@@ -87,5 +90,12 @@ class LoginActivity : AppCompatActivity() {
             Intent(this, CadastroActivity::class.java)
                 .putExtra("nameUser", user)
         )
+    }
+
+    private fun TelaHub(user:String){
+
+        val i = Intent(this, BottomBarActivity::class.java)
+        startActivity(i)
+
     }
 }

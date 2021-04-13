@@ -7,6 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Conexao {
     private const val backendPath: String = "http://payshare.ddns.net/"
+
     fun loginApi() : LoginRequest {
         return Retrofit.Builder()
             .baseUrl(backendPath)
@@ -22,4 +23,5 @@ object Conexao {
             .build()
             .create(CadastroRequest::class.java)
     }
+
 }
