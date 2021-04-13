@@ -9,7 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.apiConnection.Conexao
-import com.apiConnection.models.dataClassAdapter.LoginPost
+import com.apiConnection.models.dataClassAdapter.LoginData
 import com.apiConnection.models.response.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
         if(loginValidation(email, etSenha)){
 
             loginApi.postLogin(
-                LoginPost(email, password)
+                LoginData(email, password)
             ).enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(
                     call: Call<LoginResponse>,
