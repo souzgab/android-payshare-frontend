@@ -83,6 +83,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/saldo_carteira"
                 android:layout_toLeftOf="@id/simbolo_moeda"/>
 
+            <ImageView
+                android:id="@+id/img_visualizar_saldo"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/saldo_carteira"
+                android:layout_toLeftOf="@id/simbolo_moeda"
+                app:srcCompat="@drawable/btn_exibir" />
+
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_adicionar_dinheiro"
@@ -139,6 +150,44 @@
                 android:background="@drawable/scrow_gray"
                 app:layout_constraintEnd_toEndOf="@id/btn_adicionar_pagamento"
                 app:layout_constraintTop_toBottomOf="@+id/txt_pagamento"/>
+
+            <ImageView
+                android:id="@+id/img_cartao"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="250dp"
+                android:layout_marginTop="35dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_pagamento"
+                app:srcCompat="@drawable/master_card" />
+
+            <TextView
+                android:id="@+id/numero_cartao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="40dp"
+                android:text="******6589"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_pagamento"
+                />
+
+            <TextView
+                android:id="@+id/tipo_cartao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="250dp"
+                android:layout_marginTop="40dp"
+                android:text="Credito"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_pagamento"
+                />
+
+
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_adicionar_pagamento"
