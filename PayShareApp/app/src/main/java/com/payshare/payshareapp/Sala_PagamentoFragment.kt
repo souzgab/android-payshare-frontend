@@ -13,7 +13,7 @@ class Sala_PagamentoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_hub, container, false)
+        return inflater.inflate(R.layout.fragment_sala_pagamento, container, false)
     }
 
     companion object {

@@ -31,68 +31,180 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/page_pagamento" />
 
-    <ScrollView
+    <ImageView
+        android:id="@+id/img_user_hub"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="45dp"
+        app:layout_constraintTop_toBottomOf="@+id/page_pagamento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_user" />
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/box_hub"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginTop="30dp"
         android:layout_marginHorizontal="30dp"
-        android:background="@drawable/scrow_gray"
+        app:cardBackgroundColor="@color/gray"
+        app:cardCornerRadius="20dp"
         app:layout_constraintTop_toTopOf="@id/name_user"
         >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
-
-            <androidx.core.widget.NestedScrollView
+            <ScrollView
                 android:id="@+id/scroll_saldo"
                 android:layout_width="match_parent"
+                android:layout_marginTop="30dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="30dp"
                 android:background="@drawable/scrow_view"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_pagamento"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+            <TextView
+                android:id="@+id/txt_box_saldo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:text="Meu saldo"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/scroll_saldo" />
 
-    <ScrollView
+            <TextView
+                android:id="@+id/txt_valor_saldo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/saldo_carteira"
+                android:textColor="@color/verde_payshare"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txt_box_saldo" />
+
+            <ImageView
+                android:id="@+id/img_visualizar_saldo"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="280dp"
+                android:layout_marginTop="45dp"
+                app:layout_constraintTop_toBottomOf="@+id/txt_valor_saldo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/btn_exibir" />
+
+
+            <ImageView
+                android:id="@+id/img_add_dinheiro"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="80dp"
+                app:layout_constraintTop_toBottomOf="@+id/scroll_saldo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/add_dinheiro" />
+
+            <TextView
+                android:id="@+id/txt_add_dinheiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="125dp"
+                android:text="Adicionar"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/img_add_dinheiro" />
+
+            <ImageView
+                android:id="@+id/img_transferir"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="80dp"
+                app:layout_constraintTop_toBottomOf="@+id/scroll_saldo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/transferir" />
+
+            <TextView
+                android:id="@+id/txt_transferir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="142dp"
+                android:layout_marginTop="126dp"
+                android:text="Transferir"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/img_transferir" />
+
+            <ImageView
+                android:id="@+id/img_extrato"
+                android:layout_width="37dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="250dp"
+                android:layout_marginTop="91dp"
+                app:layout_constraintTop_toBottomOf="@+id/scroll_saldo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/extrato" />
+
+            <TextView
+                android:id="@+id/txt_extrato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="248dp"
+                android:layout_marginTop="127dp"
+                android:text="Extrato"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_extrato" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/box_avisos"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginTop="30dp"
         android:layout_marginHorizontal="30dp"
-        android:background="@drawable/scrow_view"
+        app:cardBackgroundColor="@color/dark"
+        app:cardCornerRadius="20dp"
         app:layout_constraintTop_toBottomOf="@+id/box_hub">
         >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            <ImageView
+                android:id="@+id/img_cell_hub"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/celular_hub" />
 
             <TextView
                 android:id="@+id/card_avisos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="60dp"
                 android:layout_marginEnd="30dp"
                 android:text="@string/carta_avisos"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.cardview.widget.CardView>
 
     <ScrollView
         android:id="@+id/box_criar_lobby"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="280dp"
         android:layout_marginTop="30dp"
         android:layout_marginHorizontal="30dp"
         android:background="@drawable/scrow_view"
@@ -102,14 +214,14 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="90dp">
 
             <TextView
                 android:id="@+id/lobby_vazia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_marginBottom="3372dp"
+                android:layout_marginBottom="100dp"
                 android:text="Você não possui lobby ativa"
                 android:textColor="@color/verde_payshare"
                 android:textSize="20sp"

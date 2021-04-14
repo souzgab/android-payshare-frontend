@@ -7,11 +7,21 @@
     android:background="@color/preto_payshare"
     tools:context=".ExtratoFragment">
 
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/btn_voltar"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/page_extrato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
         android:text="Extrato"
         android:textColor="@color/white"
@@ -19,43 +29,84 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
+    <androidx.cardview.widget.CardView
         android:id="@+id/box_saldo"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginHorizontal="30dp"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/scrow_view"
+        app:cardBackgroundColor="@color/dark"
+        app:cardCornerRadius="20dp"
         app:layout_constraintTop_toBottomOf="@+id/page_extrato">
         >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/txt_box_saldo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:text="Meu saldo"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/box_saldo_layout"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+        <TextView
+            android:id="@+id/txt_valor_saldo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/saldo_carteira"
+            android:textColor="@color/verde_payshare"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_box_saldo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_visualizar_saldo"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="300dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_valor_saldo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/btn_exibir" />
+    </androidx.cardview.widget.CardView>
 
     <ScrollView
+        android:id="@+id/scroll_extrato"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/preto_payshare"
+        app:layout_constraintTop_toBottomOf="@+id/box_saldo">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scroll_card_constraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/card_extrato"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginTop="50dp"
-        android:background="@color/gray"
-        app:layout_constraintTop_toBottomOf="@+id/box_saldo">
+        android:layout_marginTop="2dp"
+        app:cardBackgroundColor="@color/gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
         >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
-
             <TextView
                 android:id="@+id/txt_data_extrato"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
+                android:layout_marginTop="5dp"
                 android:text="Ontem"
                 android:textColor="@color/white"
                 android:textSize="14sp"
@@ -67,18 +118,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="80dp"
+                android:layout_marginTop="5dp"
                 android:gravity="end"
                 android:text="Saldo do dia"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/valor_carteira"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="20dp"
                 android:gravity="end"
                 android:text="@string/saldo_carteira"
@@ -86,28 +138,32 @@
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-    <ScrollView
+    <androidx.cardview.widget.CardView
         android:id="@+id/box_desc_extrato"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/dark"
+        app:cardBackgroundColor="@color/dark"
         app:layout_constraintTop_toBottomOf="@+id/card_extrato">
         >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            <ImageView
+                android:id="@+id/img_tipo_extrato"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/box_desc_extrato_layout"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/extrato_vermelho" />
 
             <TextView
                 android:id="@+id/txt_desc_extrato"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="10dp"
                 android:text="Pagamento de cartão"
                 android:textColor="@color/white"
                 android:textSize="14sp"
@@ -118,14 +174,15 @@
                 android:id="@+id/valor_gasto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/saldo_carteira"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_desc_extrato" />
+    </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
