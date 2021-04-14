@@ -7,11 +7,21 @@
     android:background="@color/preto_payshare"
     tools:context=".PerfilFragment">
 
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_voltar"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/page_dados_cadastrais"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
         android:text="Seus dados cadastrais"
         android:textColor="@color/white"
@@ -19,28 +29,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
+    <androidx.cardview.widget.CardView
         android:id="@+id/box_dados"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="70dp"
-        android:background="@drawable/scrow_view"
+        app:cardBackgroundColor="@color/dark"
+        app:cardCornerRadius="20dp"
         app:layout_constraintTop_toTopOf="@id/page_dados_cadastrais">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
-
-            <androidx.appcompat.widget.AppCompatTextView
+            <TextView
                 android:id="@+id/txt_nome"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginBottom="3372dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
                 android:text="Nome"
-                android:textColor="@android:color/white"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
@@ -48,8 +54,8 @@
                 android:id="@+id/txt_dado_nome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
                 android:text="@string/nome_user"
                 android:textColor="@color/verde_payshare"
                 android:textSize="15sp"
@@ -60,8 +66,8 @@
                 android:id="@+id/telefone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="80dp"
                 android:text="Telefone Pessoal"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -72,8 +78,8 @@
                 android:id="@+id/txt_dado_telefone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="110dp"
                 android:text="@string/telefone_user"
                 android:textColor="@color/verde_payshare"
                 android:textSize="15sp"
@@ -84,8 +90,8 @@
                 android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="140dp"
                 android:text="Email Cadastrado"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -96,16 +102,14 @@
                 android:id="@+id/txt_dado_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="170dp"
                 android:text="@string/email_user"
                 android:textColor="@color/verde_payshare"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/email" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btn_atualizar"
