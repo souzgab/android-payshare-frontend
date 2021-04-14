@@ -117,9 +117,9 @@
         android:layout_height="20dp"
         android:layout_marginTop="30dp"
         android:layout_marginHorizontal="30dp"
-        android:background="@color/preto_payshare"
+        android:background="@drawable/bg_button_normal"
         android:text="Atualizar"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@+id/box_dados"/>
 
 
