@@ -120,7 +120,7 @@
 
 
 
-                <TextView
+        <TextView
             android:id="@+id/tv_cadastro"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -129,7 +129,9 @@
             android:text="Clique aqui "
             android:textColor="@color/verde_payshare"
             android:textSize="16sp"
-                    app:layout_constraintBottom_toTopOf="@id/edit_text_confirma_senha" />
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="-22dp"
+            app:layout_constraintTop_toBottomOf="@id/btn_entrar"/>
 
 
     </LinearLayout>
