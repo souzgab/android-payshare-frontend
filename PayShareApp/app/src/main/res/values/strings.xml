@@ -23,5 +23,7 @@
     <string name="nome_user">Payshare Company Inc Acquisition</string>
     <string name="telefone_user">(11)94678-0989</string>
     <string name="email_user">payshare@gmail.com</string>
+    <string name="li_e_concordo_com_os_termos_de_uso">Li e concordo com os termos de uso</string>
+    <string name="mantenha_me_conectado">Mantenha-me conectado</string>
 
 </resources>

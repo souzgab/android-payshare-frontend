@@ -1,0 +1,512 @@
+Index: app/src/main/res/layout/activity_login.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@color/preto_payshare\"\r\n    tools:context=\".LoginActivity\">\r\n\r\n\r\n    <ImageView\r\n        android:id=\"@+id/image_logo\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"100dp\"\r\n        android:layout_marginTop=\"132dp\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:srcCompat=\"@drawable/payshare\" />\r\n\r\n    <ScrollView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"4dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/image_logo\"\r\n       >\r\n\r\n        <androidx.constraintlayout.widget.ConstraintLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"30dp\">\r\n\r\n\r\n            <androidx.appcompat.widget.AppCompatEditText\r\n                android:id=\"@+id/edit_text_email\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"50dp\"\r\n                android:layout_marginStart=\"18dp\"\r\n                android:layout_marginEnd=\"18dp\"\r\n                android:layout_marginBottom=\"18dp\"\r\n\r\n                android:hint=\"@string/email\"\r\n                android:inputType=\"text\"\r\n                android:paddingStart=\"18dp\"\r\n                android:paddingEnd=\"18dp\"\r\n                android:textColor=\"@android:color/white\"\r\n                android:textColorHint=\"@android:color/white\"\r\n                app:layout_constraintBottom_toTopOf=\"@id/edit_text_senha\" />\r\n\r\n            <androidx.appcompat.widget.AppCompatEditText\r\n                android:id=\"@+id/edit_text_senha\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"50dp\"\r\n                android:layout_marginStart=\"18dp\"\r\n                android:layout_marginEnd=\"18dp\"\r\n                android:layout_marginBottom=\"40dp\"\r\n                android:hint=\"@string/senha\"\r\n                android:imeOptions=\"actionDone\"\r\n                android:inputType=\"textPassword\"\r\n                android:paddingStart=\"18dp\"\r\n                android:paddingEnd=\"18dp\"\r\n                android:textColor=\"@android:color/white\"\r\n                android:textColorHint=\"@android:color/white\"\r\n                app:layout_constraintBottom_toTopOf=\"@id/btn_entrar\" />\r\n\r\n            <androidx.appcompat.widget.AppCompatButton\r\n                android:id=\"@+id/btn_entrar\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"50dp\"\r\n                android:layout_marginBottom=\"60dp\"\r\n                android:layout_marginStart=\"30dp\"\r\n                android:layout_marginEnd=\"30dp\"\r\n                android:background=\"@drawable/bg_button_normal\"\r\n                android:text=\"@string/entrar\"\r\n                android:onClick=\"entrar\"\r\n                android:textAllCaps=\"false\"\r\n\r\n                android:textColor=\"@android:color/white\"\r\n                android:textSize=\"18sp\"\r\n                android:textStyle=\"bold\"\r\n                app:layout_constraintBottom_toTopOf=\"@id/txt_esqueci_senha\"\r\n               />\r\n\r\n            <androidx.appcompat.widget.AppCompatCheckBox\r\n                android:id=\"@+id/checkbox\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginTop=\"10dp\"\r\n                android:layout_marginStart=\"30dp\"\r\n                android:text=\"Mantenha-me conectado\"\r\n                android:textColor=\"@color/white\"\r\n                app:layout_constraintTop_toBottomOf=\"@+id/btn_entrar\" />\r\n\r\n            <androidx.appcompat.widget.AppCompatTextView\r\n                android:id=\"@+id/txt_esqueci_senha\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginBottom=\"3372dp\"\r\n                android:text=\"@string/esqueci_senha\"\r\n                android:textAlignment=\"center\"\r\n                android:textColor=\"@android:color/white\"\r\n                android:textSize=\"16sp\"\r\n                app:layout_constraintBottom_toBottomOf=\"parent\"\r\n                />\r\n\r\n            <TextView\r\n                android:id=\"@+id/txt_sem_cadastro\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginStart=\"24dp\"\r\n                android:layout_marginTop=\"12dp\"\r\n                android:text=\"Ainda não possui cadastro?\"\r\n                android:textColor=\"@color/white\"\r\n                android:textSize=\"16sp\"\r\n                app:layout_constraintStart_toStartOf=\"parent\"\r\n                app:layout_constraintTop_toBottomOf=\"@+id/txt_esqueci_senha\" />\r\n\r\n            <TextView\r\n                android:id=\"@+id/tv_cadastro\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginTop=\"12dp\"\r\n                android:layout_marginEnd=\"44dp\"\r\n                android:gravity=\"center\"\r\n                android:text=\"Clique aqui \"\r\n                android:onClick=\"viewCadastro\"\r\n                android:textColor=\"@color/verde_payshare\"\r\n                android:textSize=\"16sp\"\r\n                app:layout_constraintEnd_toEndOf=\"parent\"\r\n                app:layout_constraintTop_toBottomOf=\"@+id/txt_esqueci_senha\" />\r\n\r\n        </androidx.constraintlayout.widget.ConstraintLayout>\r\n    </ScrollView>\r\n\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_login.xml	(revision 0bd7fd2f7d8eeed7e3231389f82566514beb8a8a)
++++ app/src/main/res/layout/activity_login.xml	(date 1618294938237)
+@@ -12,125 +12,127 @@
+         android:id="@+id/image_logo"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:layout_marginStart="100dp"
+-        android:layout_marginTop="132dp"
++        android:layout_marginTop="100dp"
++        android:scaleType="centerCrop"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.497"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:srcCompat="@drawable/payshare" />
+ 
+-    <ScrollView
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:layout_marginTop="4dp"
+-        app:layout_constraintTop_toBottomOf="@+id/image_logo"
+-       >
+ 
+-        <androidx.constraintlayout.widget.ConstraintLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:layout_marginTop="30dp">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:orientation="vertical"
++        android:layout_marginStart="10dp"
++        android:layout_marginEnd="10dp"
++        android:layout_marginTop="30dp"
++        app:layout_constraintTop_toBottomOf="@id/image_logo"
+ 
++        >
+ 
+-            <androidx.appcompat.widget.AppCompatEditText
+-                android:id="@+id/edit_text_email"
+-                android:layout_width="match_parent"
+-                android:layout_height="50dp"
+-                android:layout_marginStart="18dp"
+-                android:layout_marginEnd="18dp"
+-                android:layout_marginBottom="18dp"
+-
+-                android:hint="@string/email"
+-                android:inputType="text"
+-                android:paddingStart="18dp"
+-                android:paddingEnd="18dp"
+-                android:textColor="@android:color/white"
+-                android:textColorHint="@android:color/white"
+-                app:layout_constraintBottom_toTopOf="@id/edit_text_senha" />
++        <androidx.appcompat.widget.AppCompatEditText
++            android:id="@+id/edit_text_email"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_marginStart="18dp"
++            android:layout_marginEnd="18dp"
++            android:layout_marginBottom="18dp"
++            android:hint="@string/email"
++            android:inputType="textEmailAddress"
++            android:paddingStart="18dp"
++            android:paddingEnd="18dp"
++            android:textColor="@android:color/white"
++            android:textColorHint="@android:color/white"
++            app:layout_constraintBottom_toTopOf="@id/edit_text_senha" />
+ 
+-            <androidx.appcompat.widget.AppCompatEditText
+-                android:id="@+id/edit_text_senha"
+-                android:layout_width="match_parent"
+-                android:layout_height="50dp"
+-                android:layout_marginStart="18dp"
+-                android:layout_marginEnd="18dp"
+-                android:layout_marginBottom="40dp"
+-                android:hint="@string/senha"
+-                android:imeOptions="actionDone"
+-                android:inputType="textPassword"
+-                android:paddingStart="18dp"
+-                android:paddingEnd="18dp"
+-                android:textColor="@android:color/white"
+-                android:textColorHint="@android:color/white"
+-                app:layout_constraintBottom_toTopOf="@id/btn_entrar" />
++        <androidx.appcompat.widget.AppCompatEditText
++            android:id="@+id/edit_text_senha"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_marginStart="18dp"
++            android:layout_marginEnd="18dp"
++            android:layout_marginBottom="18dp"
++            android:layout_marginTop="10dp"
++            android:hint="@string/senha"
++            android:imeOptions="actionDone"
++            android:inputType="textPassword"
++            android:paddingStart="18dp"
++            android:paddingEnd="18dp"
++            android:textColor="@android:color/white"
++            android:textColorHint="@android:color/white"
++            app:layout_constraintBottom_toTopOf="@id/btn_entrar" />
+ 
+-            <androidx.appcompat.widget.AppCompatButton
+-                android:id="@+id/btn_entrar"
+-                android:layout_width="match_parent"
+-                android:layout_height="50dp"
+-                android:layout_marginBottom="60dp"
+-                android:layout_marginStart="30dp"
+-                android:layout_marginEnd="30dp"
+-                android:background="@drawable/bg_button_normal"
+-                android:text="@string/entrar"
+-                android:onClick="entrar"
+-                android:textAllCaps="false"
+-
+-                android:textColor="@android:color/white"
+-                android:textSize="18sp"
+-                android:textStyle="bold"
+-                app:layout_constraintBottom_toTopOf="@id/txt_esqueci_senha"
+-               />
++
++        <androidx.appcompat.widget.AppCompatButton
++            android:id="@+id/btn_entrar"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_marginStart="30dp"
++            android:layout_marginEnd="30dp"
++            android:layout_marginTop="20dp"
++            android:layout_marginBottom="60dp"
++            android:background="@drawable/bg_button_normal"
++            android:text="Entrar"
++            android:textAllCaps="false"
++            android:textColor="@android:color/white"
++            android:textSize="18sp"
++            android:textStyle="bold"
++             />
+ 
+-            <androidx.appcompat.widget.AppCompatCheckBox
+-                android:id="@+id/checkbox"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="10dp"
+-                android:layout_marginStart="30dp"
+-                android:text="Mantenha-me conectado"
+-                android:textColor="@color/white"
+-                app:layout_constraintTop_toBottomOf="@+id/btn_entrar" />
++        <androidx.appcompat.widget.AppCompatCheckBox
++            android:id="@+id/checkbox"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginStart="30dp"
++            android:layout_marginEnd="30dp"
++            android:layout_marginTop="-50dp"
++            android:text="Mantenha-me conectado"
++            android:textColor="@color/white"
++            app:layout_constraintTop_toBottomOf="@+id/btn_entrar" />
+ 
+-            <androidx.appcompat.widget.AppCompatTextView
+-                android:id="@+id/txt_esqueci_senha"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginBottom="3372dp"
+-                android:text="@string/esqueci_senha"
+-                android:textAlignment="center"
+-                android:textColor="@android:color/white"
+-                android:textSize="16sp"
+-                app:layout_constraintBottom_toBottomOf="parent"
+-                />
++        <androidx.appcompat.widget.AppCompatTextView
++            android:id="@+id/txt_esqueci_senha"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginStart="30dp"
++            android:layout_marginEnd="30dp"
++            android:layout_marginTop="20dp"
++            android:text="@string/esqueci_senha"
++            android:textAlignment="center"
++            android:textColor="@android:color/white"
++            android:textSize="16sp"
++            app:layout_constraintBottom_toBottomOf="@id/checkbox" />
+ 
+-            <TextView
+-                android:id="@+id/txt_sem_cadastro"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:layout_marginStart="24dp"
+-                android:layout_marginTop="12dp"
+-                android:text="Ainda não possui cadastro?"
+-                android:textColor="@color/white"
+-                android:textSize="16sp"
+-                app:layout_constraintStart_toStartOf="parent"
+-                app:layout_constraintTop_toBottomOf="@+id/txt_esqueci_senha" />
++        <TextView
++            android:id="@+id/txt_sem_cadastro"
++            android:layout_width="210dp"
++            android:layout_height="wrap_content"
++            android:layout_marginStart="24dp"
++            android:layout_marginTop="12dp"
++            android:text="Ainda não possui cadastro?"
++            android:textColor="@color/white"
++            android:textSize="16sp"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@id/btn_entrar" />
++
++
+ 
+-            <TextView
+-                android:id="@+id/tv_cadastro"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="12dp"
+-                android:layout_marginEnd="44dp"
+-                android:gravity="center"
+-                android:text="Clique aqui "
+-                android:onClick="viewCadastro"
+-                android:textColor="@color/verde_payshare"
+-                android:textSize="16sp"
+-                app:layout_constraintEnd_toEndOf="parent"
+-                app:layout_constraintTop_toBottomOf="@+id/txt_esqueci_senha" />
++                <TextView
++            android:id="@+id/tv_cadastro"
++            android:layout_width="100dp"
++            android:layout_height="wrap_content"
++            android:gravity="center"
++            android:onClick="viewCadastro"
++            android:text="Clique aqui "
++            android:textColor="@color/verde_payshare"
++            android:textSize="16sp"
++                    app:layout_constraintBottom_toTopOf="@id/edit_text_confirma_senha" />
+ 
+-        </androidx.constraintlayout.widget.ConstraintLayout>
+-    </ScrollView>
++
++    </LinearLayout>
+ 
+ 
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_cadastro.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@color/preto_payshare\"\r\n    tools:context=\".CadastroActivity\">\r\n\r\n    <ImageView\r\n        android:id=\"@+id/image_logo\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"100dp\"\r\n        android:layout_marginTop=\"132dp\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:srcCompat=\"@drawable/payshare\" />\r\n\r\n    <ScrollView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n\r\n        app:layout_constraintTop_toBottomOf=\"@+id/image_logo\"\r\n       >\r\n\r\n        <androidx.constraintlayout.widget.ConstraintLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"30dp\">\r\n\r\n            <androidx.appcompat.widget.AppCompatEditText\r\n\r\n                android:id=\"@+id/edit_text_nome\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"50dp\"\r\n                android:layout_marginStart=\"18dp\"\r\n                android:layout_marginEnd=\"18dp\"\r\n                android:layout_marginBottom=\"18dp\"\r\n                android:hint=\"@string/nome\"\r\n                android:inputType=\"textPersonName\"\r\n                android:paddingStart=\"18dp\"\r\n                android:paddingEnd=\"18dp\"\r\n                android:textColor=\"@android:color/white\"\r\n                android:textColorHint=\"@android:color/white\"\r\n                app:layout_constraintBottom_toTopOf=\"@id/edit_text_cpf\" />\r\n\r\n            <androidx.appcompat.widget.AppCompatEditText\r\n                android:id=\"@+id/edit_text_cpf\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"50dp\"\r\n                android:layout_marginStart=\"18dp\"\r\n                android:layout_marginEnd=\"18dp\"\r\n                android:layout_marginBottom=\"18dp\"\r\n                android:hint=\"@string/cpf\"\r\n                android:inputType=\"text\"\r\n                android:paddingStart=\"18dp\"\r\n                android:paddingEnd=\"18dp\"\r\n                android:textColor=\"@android:color/white\"\r\n                android:textColorHint=\"@android:color/white\"\r\n                app:layout_constraintBottom_toTopOf=\"@id/edit_text_email\" />\r\n\r\n            <androidx.appcompat.widget.AppCompatEditText\r\n                android:id=\"@+id/edit_text_email\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"50dp\"\r\n                android:layout_marginStart=\"18dp\"\r\n                android:layout_marginEnd=\"18dp\"\r\n                android:layout_marginBottom=\"18dp\"\r\n                android:hint=\"@string/email\"\r\n                android:inputType=\"textEmailAddress\"\r\n                android:paddingStart=\"18dp\"\r\n                android:paddingEnd=\"18dp\"\r\n                android:textColor=\"@android:color/white\"\r\n                android:textColorHint=\"@android:color/white\"\r\n                app:layout_constraintBottom_toTopOf=\"@id/edit_text_senha\" />\r\n\r\n            <androidx.appcompat.widget.AppCompatEditText\r\n                android:id=\"@+id/edit_text_senha\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"50dp\"\r\n                android:layout_marginStart=\"18dp\"\r\n                android:layout_marginEnd=\"18dp\"\r\n                android:layout_marginBottom=\"18dp\"\r\n                android:hint=\"@string/senha\"\r\n                android:imeOptions=\"actionDone\"\r\n                android:inputType=\"textPassword\"\r\n                android:paddingStart=\"18dp\"\r\n                android:paddingEnd=\"18dp\"\r\n                android:textColor=\"@android:color/white\"\r\n                android:textColorHint=\"@android:color/white\"\r\n                app:layout_constraintBottom_toTopOf=\"@id/edit_text_confirma_senha\" />\r\n\r\n            <androidx.appcompat.widget.AppCompatEditText\r\n                android:id=\"@+id/edit_text_confirma_senha\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"50dp\"\r\n                android:layout_marginStart=\"18dp\"\r\n                android:layout_marginEnd=\"18dp\"\r\n                android:layout_marginBottom=\"40dp\"\r\n                android:hint=\"@string/confirmar_senha\"\r\n                android:imeOptions=\"actionDone\"\r\n                android:inputType=\"textPassword\"\r\n                android:paddingStart=\"18dp\"\r\n                android:paddingEnd=\"18dp\"\r\n                android:textColor=\"@android:color/white\"\r\n                android:textColorHint=\"@android:color/white\"\r\n                app:layout_constraintBottom_toTopOf=\"@id/btn_cadastro\" />\r\n\r\n\r\n            <androidx.appcompat.widget.AppCompatButton\r\n                android:id=\"@+id/btn_cadastro\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"50dp\"\r\n                android:layout_marginBottom=\"60dp\"\r\n                android:layout_marginStart=\"30dp\"\r\n                android:layout_marginEnd=\"30dp\"\r\n                android:background=\"@drawable/bg_button_normal\"\r\n                android:text=\"Cadastrar\"\r\n                android:textAllCaps=\"false\"\r\n                android:textColor=\"@android:color/white\"\r\n                android:textSize=\"18sp\"\r\n                android:textStyle=\"bold\"\r\n                app:layout_constraintBottom_toTopOf=\"@id/checkbox\"\r\n                />\r\n\r\n            <androidx.appcompat.widget.AppCompatCheckBox\r\n                android:id=\"@+id/checkbox\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginTop=\"10dp\"\r\n                android:layout_marginStart=\"30dp\"\r\n                android:text=\"Li e concordo com os termos de uso\"\r\n                android:textColor=\"@color/white\"\r\n                app:layout_constraintTop_toBottomOf=\"@+id/btn_cadastro\" />\r\n        </androidx.constraintlayout.widget.ConstraintLayout>\r\n    </ScrollView>\r\n\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_cadastro.xml	(revision 0bd7fd2f7d8eeed7e3231389f82566514beb8a8a)
++++ app/src/main/res/layout/activity_cadastro.xml	(date 1618296327428)
+@@ -11,23 +11,29 @@
+         android:id="@+id/image_logo"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:layout_marginStart="100dp"
+         android:layout_marginTop="132dp"
++        app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+-        app:srcCompat="@drawable/payshare" />
++        app:srcCompat="@drawable/payshare"
++        android:contentDescription="TODO" />
+ 
+     <ScrollView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
++        app:layout_constraintTop_toBottomOf="@id/image_logo"
++        tools:layout_editor_absoluteX="16dp">
+ 
+-        app:layout_constraintTop_toBottomOf="@+id/image_logo"
+-       >
+-
+-        <androidx.constraintlayout.widget.ConstraintLayout
++        <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:layout_marginTop="30dp">
++            android:layout_marginStart="10dp"
++            android:layout_marginTop="30dp"
++            android:layout_marginEnd="10dp"
++            android:orientation="vertical"
++            android:layout_gravity="center"
++
++            >
+ 
+             <androidx.appcompat.widget.AppCompatEditText
+ 
+@@ -112,28 +118,29 @@
+                 android:id="@+id/btn_cadastro"
+                 android:layout_width="match_parent"
+                 android:layout_height="50dp"
+-                android:layout_marginBottom="60dp"
+                 android:layout_marginStart="30dp"
+                 android:layout_marginEnd="30dp"
++                android:layout_marginBottom="60dp"
+                 android:background="@drawable/bg_button_normal"
+                 android:text="Cadastrar"
+                 android:textAllCaps="false"
+                 android:textColor="@android:color/white"
+                 android:textSize="18sp"
+                 android:textStyle="bold"
+-                app:layout_constraintBottom_toTopOf="@id/checkbox"
+-                />
++                app:layout_constraintBottom_toTopOf="@id/checkbox" />
+ 
+             <androidx.appcompat.widget.AppCompatCheckBox
+                 android:id="@+id/checkbox"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+-                android:layout_marginTop="10dp"
+                 android:layout_marginStart="30dp"
++                android:layout_marginTop="-50dp"
++                android:layout_marginEnd="30dp"
+                 android:text="Li e concordo com os termos de uso"
+                 android:textColor="@color/white"
+                 app:layout_constraintTop_toBottomOf="@+id/btn_cadastro" />
+-        </androidx.constraintlayout.widget.ConstraintLayout>
++
++        </LinearLayout>
+     </ScrollView>
+ 
+ 
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">PayShareApp</string>\r\n    <string name=\"frase1_home\">Compartilhe seus pagamentos</string>\r\n    <string name=\"frase2_home\">Crie sua lobby, convide seus amigos. É fácil, rápido e seguro.</string>\r\n    <string name=\"cadastro\">Cadastre-se</string>\r\n    <string name=\"login\">Login</string>\r\n    <string name=\"entrar_google\">Entrar com a conta Google</string>\r\n    <string name=\"email\">Email*</string>\r\n    <string name=\"senha\">Senha*</string>\r\n    <string name=\"entrar\">Entrar</string>\r\n    <string name=\"esqueci_senha\">Esqueci minha senha</string>\r\n    <string name=\"sem_cadastro\">Ainda não possui cadastro?</string>\r\n    <string name=\"clique_aqui\">Clique aqui</string>\r\n    <string name=\"nome\">Nome*</string>\r\n    <string name=\"cpf\">CPF*</string>\r\n    <string name=\"confirmar_senha\">Confirme sua senha*</string>\r\n    <string name=\"carteira\">Carteira</string>\r\n    <string name=\"adicionar_dinheiro\">Adicionar dinheiro na carteira</string>\r\n    <string name=\"adicionar_pagamento\">Adicionar pagamento</string>\r\n    <string name=\"saldo_carteira\">200,00</string>\r\n    <string name=\"forma_pagamento\">Forma de pagamento</string>\r\n    <string name=\"carta_avisos\">Use o dinheiro da sua conta para realizar pagamentos compartilhado</string>\r\n    <string name=\"nome_user\">Payshare Company Inc Acquisition</string>\r\n    <string name=\"telefone_user\">(11)94678-0989</string>\r\n    <string name=\"email_user\">payshare@gmail.com</string>\r\n\r\n</resources>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision 0bd7fd2f7d8eeed7e3231389f82566514beb8a8a)
++++ app/src/main/res/values/strings.xml	(date 1618293069123)
+@@ -23,5 +23,7 @@
+     <string name="nome_user">Payshare Company Inc Acquisition</string>
+     <string name="telefone_user">(11)94678-0989</string>
+     <string name="email_user">payshare@gmail.com</string>
++    <string name="li_e_concordo_com_os_termos_de_uso">Li e concordo com os termos de uso</string>
++    <string name="mantenha_me_conectado">Mantenha-me conectado</string>
+ 
+ </resources>
+Index: app/src/main/java/com/payshare/payshareapp/Sala_PagamentoFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.payshare.payshareapp\r\n\r\nimport android.os.Bundle\r\nimport androidx.fragment.app.Fragment\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\n\r\n\r\nclass Sala_PagamentoFragment : Fragment() {\r\n\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater, container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        return inflater.inflate(R.layout.fragment_hub, container, false)\r\n    }\r\n\r\n    companion object {\r\n      @JvmStatic\r\n      fun newInstance() =\r\n            Sala_PagamentoFragment().apply {\r\n                arguments = Bundle().apply {}\r\n            }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/payshare/payshareapp/Sala_PagamentoFragment.kt	(revision 0bd7fd2f7d8eeed7e3231389f82566514beb8a8a)
++++ app/src/main/java/com/payshare/payshareapp/Sala_PagamentoFragment.kt	(date 1618278079818)
+@@ -13,7 +13,7 @@
+         inflater: LayoutInflater, container: ViewGroup?,
+         savedInstanceState: Bundle?
+     ): View? {
+-        return inflater.inflate(R.layout.fragment_hub, container, false)
++        return inflater.inflate(R.layout.fragment_sala_pagamento, container, false)
+     }
+ 
+     companion object {
+Index: app/src/main/java/com/payshare/payshareapp/WalletFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.payshare.payshareapp\r\n\r\nimport android.os.Bundle\r\nimport androidx.fragment.app.Fragment\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\n\r\n\r\nclass WalletFragment : Fragment() {\r\n\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater, container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        return inflater.inflate(R.layout.fragment_wallet, container, false)\r\n    }\r\n\r\n    companion object {\r\n      @JvmStatic\r\n      fun newInstance() =\r\n            WalletFragment().apply {\r\n                arguments = Bundle().apply {}\r\n            }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/payshare/payshareapp/WalletFragment.kt	(revision 0bd7fd2f7d8eeed7e3231389f82566514beb8a8a)
++++ app/src/main/java/com/payshare/payshareapp/WalletFragment.kt	(date 1618281784358)
+@@ -5,6 +5,7 @@
+ import android.view.LayoutInflater
+ import android.view.View
+ import android.view.ViewGroup
++import kotlinx.android.synthetic.main.fragment_bottomsheet.*
+ 
+ 
+ class WalletFragment : Fragment() {
+@@ -14,7 +15,11 @@
+         savedInstanceState: Bundle?
+     ): View? {
+         return inflater.inflate(R.layout.fragment_wallet, container, false)
++
++
+     }
++
++
+ 
+     companion object {
+       @JvmStatic
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.application'\r\n\r\napply plugin: 'kotlin-android'\r\n\r\napply plugin: 'kotlin-android-extensions'\r\n\r\nandroid {\r\n    compileSdkVersion 29\r\n    buildToolsVersion \"29.0.2\"\r\n    defaultConfig {\r\n        applicationId \"com.payshare.payshareapp\"\r\n        minSdkVersion 17\r\n        targetSdkVersion 29\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n}\r\n\r\ndependencies {\r\n    implementation fileTree(dir: 'libs', include: ['*.jar'])\r\n    implementation\"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version\"\r\n    implementation 'androidx.appcompat:appcompat:1.0.2'\r\n    implementation 'androidx.core:core-ktx:1.2.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'\r\n    implementation 'com.google.android.material:material:1.0.0'\r\n    implementation 'com.squareup.retrofit2:retrofit:2.5.0'\r\n    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'\r\n    implementation 'androidx.legacy:legacy-support-v4:1.0.0'\r\n    testImplementation 'junit:junit:4.12'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.0'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'\r\n    implementation 'com.etebarian:meow-bottom-navigation:1.2.0'\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision 0bd7fd2f7d8eeed7e3231389f82566514beb8a8a)
++++ app/build.gradle	(date 1618284533064)
+@@ -37,4 +37,5 @@
+     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+     implementation 'com.etebarian:meow-bottom-navigation:1.2.0'
++    implementation 'com.google.android.material:material:1.1.0'
+ }
+Index: app/src/main/res/layout/fragment_bottomsheet.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_bottomsheet.xml	(date 1618287836162)
++++ app/src/main/res/layout/fragment_bottomsheet.xml	(date 1618287836162)
+@@ -0,0 +1,48 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:orientation="vertical"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:gravity="center_horizontal"
++    android:background="@color/preto_payshare"
++    tools:context=".BottomSheetFragment">
++
++    <TextView
++        android:id="@+id/txt_adicioanar"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:textStyle="bold"
++        android:gravity="center"
++        android:layout_marginTop="20dp"
++        android:text="@string/adicionar_dinheiro"
++        android:textColor="@color/white"
++        android:textSize="@dimen/large_title" />
++
++
++
++    <EditText
++        android:id="@+id/editTextNumber3"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="20dp"
++        android:layout_marginEnd="20dp"
++        android:layout_marginTop="30dp"
++        android:textColorHint="@color/white"
++        android:hint="Valor*"
++        android:ems="10"
++        android:inputType="number" />
++
++
++        <Button
++            android:id="@+id/btn_inserir"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginStart="30dp"
++            android:layout_marginEnd="30dp"
++            android:layout_marginTop="30dp"
++            android:background="@drawable/bg_button_normal"
++            android:text="Inserir" />
++
++
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/payshare/payshareapp/BottomSheetFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/payshare/payshareapp/BottomSheetFragment.kt	(date 1618279968281)
++++ app/src/main/java/com/payshare/payshareapp/BottomSheetFragment.kt	(date 1618279968281)
+@@ -0,0 +1,42 @@
++package com.payshare.payshareapp
++
++import android.content.SharedPreferences
++import android.os.Bundle
++import androidx.fragment.app.Fragment
++import android.view.LayoutInflater
++import android.view.View
++import android.view.ViewGroup
++import android.widget.EditText
++import android.widget.TextView
++import android.widget.Toast
++import androidx.appcompat.app.AppCompatActivity
++import kotlinx.android.synthetic.main.fragment_bottomsheet.*
++
++
++class BottomSheetFragment : Fragment() {
++
++    lateinit var  preferencias: SharedPreferences
++
++    override fun onCreateView(
++        inflater: LayoutInflater, container: ViewGroup?,
++        savedInstanceState: Bundle?
++    ): View? {
++        return inflater.inflate(R.layout.fragment_bottomsheet, container, false)
++    }
++
++    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
++        super.onViewCreated(view, savedInstanceState)
++
++        btn_inserir.setOnClickListener{
++            Toast.makeText(context, "Dinhiero adicionado", Toast.LENGTH_SHORT).show()
++        }
++    }
++
++    companion object {
++      @JvmStatic
++      fun newInstance() =
++            BottomSheetFragment().apply {
++                arguments = Bundle().apply {}
++            }
++    }
++}
+\ No newline at end of file
+diff --git .idea/shelf/Uncommitted_changes_before_Checkout_at_07_04_2021_20_39__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Checkout_at_07_04_2021_20_39__Default_Changelist_.xml

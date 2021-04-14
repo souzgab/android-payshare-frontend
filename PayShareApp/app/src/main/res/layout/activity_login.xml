@@ -12,125 +12,127 @@
         android:id="@+id/image_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="100dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/payshare" />
 
-    <ScrollView
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:layout_constraintTop_toBottomOf="@+id/image_logo"
-       >
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/image_logo"
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        >
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edit_text_email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="18dp"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@id/edit_text_senha" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edit_text_senha"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="18dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/senha"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@id/btn_entrar" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_entrar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="60dp"
+            android:background="@drawable/bg_button_normal"
+            android:text="Entrar"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+             />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="-50dp"
+            android:text="Mantenha-me conectado"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/btn_entrar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_esqueci_senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/esqueci_senha"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/checkbox" />
+
+        <TextView
+            android:id="@+id/txt_sem_cadastro"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:text="Ainda não possui cadastro?"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_entrar" />
 
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/edit_text_email"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
-                android:layout_marginBottom="18dp"
 
-                android:hint="@string/email"
-                android:inputType="text"
-                android:paddingStart="18dp"
-                android:paddingEnd="18dp"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                app:layout_constraintBottom_toTopOf="@id/edit_text_senha" />
+                <TextView
+            android:id="@+id/tv_cadastro"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:onClick="viewCadastro"
+            android:text="Clique aqui "
+            android:textColor="@color/verde_payshare"
+            android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@id/edit_text_confirma_senha" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/edit_text_senha"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
-                android:layout_marginBottom="40dp"
-                android:hint="@string/senha"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
-                android:paddingStart="18dp"
-                android:paddingEnd="18dp"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                app:layout_constraintBottom_toTopOf="@id/btn_entrar" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_entrar"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="60dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/bg_button_normal"
-                android:text="@string/entrar"
-                android:onClick="entrar"
-                android:textAllCaps="false"
-
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/txt_esqueci_senha"
-               />
-
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:id="@+id/checkbox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="30dp"
-                android:text="Mantenha-me conectado"
-                android:textColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@+id/btn_entrar" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txt_esqueci_senha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="3372dp"
-                android:text="@string/esqueci_senha"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
-
-            <TextView
-                android:id="@+id/txt_sem_cadastro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="12dp"
-                android:text="Ainda não possui cadastro?"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_esqueci_senha" />
-
-            <TextView
-                android:id="@+id/tv_cadastro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="44dp"
-                android:gravity="center"
-                android:text="Clique aqui "
-                android:onClick="viewCadastro"
-                android:textColor="@color/verde_payshare"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_esqueci_senha" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
