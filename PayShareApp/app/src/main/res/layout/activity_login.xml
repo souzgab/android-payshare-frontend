@@ -80,6 +80,7 @@
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:onClick="entrar"
              />
 
         <androidx.appcompat.widget.AppCompatCheckBox

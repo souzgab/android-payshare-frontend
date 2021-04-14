@@ -27,9 +27,9 @@ class LoginActivity : AppCompatActivity() {
         preferencias = getSharedPreferences("Auth", MODE_PRIVATE)
         val ultimoUsuario = preferencias.getString("idUser", null)
 
-        if(ultimoUsuario != null) {
-            TelaHub(ultimoUsuario)
-        }
+//        if(ultimoUsuario != null) {
+//            TelaHub(ultimoUsuario)
+//        }
 
     }
 
@@ -38,17 +38,18 @@ class LoginActivity : AppCompatActivity() {
         val etSenha: EditText = findViewById(R.id.edit_text_senha)
         val email = etLogin.text.toString()
         val password = etSenha.text.toString()
-
+        Log.println(Log.INFO, "login", "log ".plus(email + password))
         if(loginValidation(email, etSenha)){
+            val loginDt = LoginData(email, password)
 
             loginApi.postLogin(
-                LoginData(email, password)
+                loginDt
             ).enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(
                     call: Call<LoginResponse>,
                     response: Response<LoginResponse>
                 ) {
-
+                    Log.println(Log.INFO, "login", "log ".plus(response.body()))
                     val data = response.body()
                     if (data != null) {
                         val editor = preferencias.edit()
@@ -57,10 +58,8 @@ class LoginActivity : AppCompatActivity() {
                         editor.putString("idUser", data.id.toString())
                         editor.putString("nameUser", data.name)
                         editor.commit()
-                        val ultimoUsuario = preferencias.getString("idUser", null)
-                        if(ultimoUsuario != null) {
-                            TelaHub(ultimoUsuario)
-                        }
+                        TelaHub()
+                        Toast.makeText(baseContext, response.body().toString(), Toast.LENGTH_SHORT).show()
                         Log.println(Log.INFO, "login", "log qlq coisa ae".plus(preferencias.toString()))
                     }
                 }
@@ -84,18 +83,7 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun redirectLobby(user: String) {
-        // Trocar Activity abaixo para a tela certa
-        startActivity(
-            Intent(this, CadastroActivity::class.java)
-                .putExtra("nameUser", user)
-        )
-    }
-
-    private fun TelaHub(user:String){
-
-        val i = Intent(this, BottomBarActivity::class.java)
-        startActivity(i)
-
+    private fun TelaHub(){
+        startActivity(Intent(this, BottomBarActivity::class.java))
     }
 }
