@@ -45,8 +45,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
-                android:text="Nome"
-                android:textColor="@color/white"
+                android:hint="Nome"
+                android:textColorHint="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
@@ -56,8 +56,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="50dp"
-                android:text="@string/nome_user"
-                android:textColor="@color/verde_payshare"
+                android:hint="@string/nome_user"
+                android:textColorHint="@color/verde_payshare"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_nome" />
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="80dp"
-                android:text="Telefone Pessoal"
+                android:text="Endereço"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="110dp"
-                android:text="@string/telefone_user"
+                android:text="Rua dos bobos"
                 android:textColor="@color/verde_payshare"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -114,7 +114,7 @@
     <Button
         android:id="@+id/btn_atualizar"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginHorizontal="30dp"
         android:background="@drawable/bg_button_normal"
@@ -139,6 +139,7 @@
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
+            android:id="@+id/btn_sair"
             android:background="@drawable/bg_button_clear_red"
             android:text="Sair"
             android:textColor="@android:color/darker_gray" />

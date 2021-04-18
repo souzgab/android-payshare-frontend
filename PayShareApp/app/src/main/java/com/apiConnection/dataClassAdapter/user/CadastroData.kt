@@ -1,4 +1,4 @@
-package com.apiConnection.models.dataClassAdapter
+package com.apiConnection.dataClassAdapter.user
 
 import com.google.gson.annotations.SerializedName
 

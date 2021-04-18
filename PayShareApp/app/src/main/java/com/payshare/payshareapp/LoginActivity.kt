@@ -9,8 +9,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.apiConnection.Conexao
-import com.apiConnection.models.dataClassAdapter.LoginData
-import com.apiConnection.models.response.LoginResponse
+import com.apiConnection.dataClassAdapter.user.LoginData
+import com.apiConnection.models.response.user.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,9 +27,9 @@ class LoginActivity : AppCompatActivity() {
         preferencias = getSharedPreferences("Auth", MODE_PRIVATE)
         val ultimoUsuario = preferencias.getString("idUser", null)
 
-//        if(ultimoUsuario != null) {
-//            TelaHub(ultimoUsuario)
-//        }
+        if(ultimoUsuario != null) {
+            TelaHub()
+        }
 
     }
 
@@ -40,7 +40,11 @@ class LoginActivity : AppCompatActivity() {
         val password = etSenha.text.toString()
         Log.println(Log.INFO, "login", "log ".plus(email + password))
         if(loginValidation(email, etSenha)){
-            val loginDt = LoginData(email, password)
+            val loginDt =
+                LoginData(
+                    email,
+                    password
+                )
 
             loginApi.postLogin(
                 loginDt
@@ -61,6 +65,8 @@ class LoginActivity : AppCompatActivity() {
                         TelaHub()
                         Toast.makeText(baseContext, response.body().toString(), Toast.LENGTH_SHORT).show()
                         Log.println(Log.INFO, "login", "log qlq coisa ae".plus(preferencias.toString()))
+                    }else {
+                        Toast.makeText(baseContext, "Falha ao autenticar", Toast.LENGTH_SHORT).show()
                     }
                 }
 

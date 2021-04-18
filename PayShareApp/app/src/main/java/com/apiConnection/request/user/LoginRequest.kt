@@ -1,7 +1,7 @@
-package com.apiConnection.models.request
+package com.apiConnection.request.user
 
-import com.apiConnection.models.dataClassAdapter.LoginData
-import com.apiConnection.models.response.LoginResponse
+import com.apiConnection.dataClassAdapter.user.LoginData
+import com.apiConnection.models.response.user.LoginResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Headers

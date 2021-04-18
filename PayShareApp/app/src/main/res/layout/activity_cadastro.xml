@@ -124,6 +124,7 @@
                 android:background="@drawable/bg_button_normal"
                 android:text="Cadastrar"
                 android:textAllCaps="false"
+                android:onClick="cadastrarUsuario"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"

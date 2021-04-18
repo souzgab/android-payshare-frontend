@@ -97,7 +97,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/saldo_carteira"
             android:layout_toLeftOf="@id/simbolo_moeda"
-            app:srcCompat="@drawable/btn_exibir" />
+            app:srcCompat="@drawable/btn_ocultar_money" />
 
 
         <androidx.appcompat.widget.AppCompatButton

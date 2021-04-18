@@ -1,7 +1,7 @@
-package com.apiConnection.models.request
+package com.apiConnection.request.user
 
-import com.apiConnection.models.dataClassAdapter.CadastroData
-import com.apiConnection.models.response.CadastroResponse
+import com.apiConnection.dataClassAdapter.user.CadastroData
+import com.apiConnection.models.response.user.CadastroResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Headers

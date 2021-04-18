@@ -1,9 +1,8 @@
-package com.example.payshareapp
+package com.payshare.payshareapp
 
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.payshare.payshareapp.R
 import java.net.URL
 import javax.net.ssl.HttpsURLConnection
 

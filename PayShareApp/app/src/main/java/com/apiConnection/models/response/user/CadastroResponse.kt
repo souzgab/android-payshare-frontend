@@ -1,4 +1,4 @@
-package com.apiConnection.models.response
+package com.apiConnection.models.response.user
 
 data class CadastroResponse(
     val userId: Number,
