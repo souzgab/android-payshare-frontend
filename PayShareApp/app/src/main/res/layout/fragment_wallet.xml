@@ -64,39 +64,25 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_carteira" />
 
         <TextView
-            android:id="@+id/simbolo_moeda"
-            android:layout_width="wrap_content"
+            android:id="@+id/valor_carteira"
+            android:layout_width="285dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
             android:layout_marginTop="120dp"
-            android:text="R$"
-            android:textColor="@color/verde_payshare"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/saldo_carteira" />
-
-        <TextView
-            android:id="@+id/valor_carteira"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="120dp"
-            android:text="@string/saldo_carteira"
-            android:textColor="@color/verde_payshare"
-            android:textSize="18sp"
+            android:hint="R$ 0.00"
+            android:textColorHint="@color/verde_payshare"
+            android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/saldo_carteira"
-            android:layout_toLeftOf="@id/simbolo_moeda" />
+            app:layout_constraintTop_toBottomOf="@+id/saldo_carteira" />
 
         <ImageView
             android:id="@+id/img_visualizar_saldo"
             android:layout_width="20dp"
             android:layout_height="30dp"
-            android:layout_marginStart="300dp"
+            android:layout_marginStart="280dp"
             android:layout_marginTop="120dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/saldo_carteira"
-            android:layout_toLeftOf="@id/simbolo_moeda"
             app:srcCompat="@drawable/btn_ocultar_money" />
 
 
