@@ -8,15 +8,11 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.apiConnection.Conexao
-import com.apiConnection.models.dataClassAdapter.CadastroData
-import com.apiConnection.models.response.CadastroResponse
-import com.apiConnection.models.response.LoginResponse
-import com.google.gson.annotations.SerializedName
-import kotlinx.android.synthetic.main.activity_cadastro.*
+import com.apiConnection.dataClassAdapter.user.CadastroData
+import com.apiConnection.models.response.user.CadastroResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.Serializable
 
 class CadastroActivity : AppCompatActivity() {
     private val cadastroApi = Conexao.cadastroApi()

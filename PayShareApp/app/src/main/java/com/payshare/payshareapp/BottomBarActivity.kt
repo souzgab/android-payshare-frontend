@@ -18,6 +18,8 @@ class BottomBarActivity : AppCompatActivity() {
         bottomNavigation.add(MeowBottomNavigation.Model(2, R.drawable.ic_cartao))
         bottomNavigation.add(MeowBottomNavigation.Model(3, R.drawable.ic_perfil))
 
+        mudarTela(HubFragment.newInstance())
+
         bottomNavigation.setOnClickMenuListener {
             when(it.id){
                 0 -> {
