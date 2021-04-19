@@ -61,9 +61,9 @@ class LoginActivity : AppCompatActivity() {
                         editor.putString("emailUser", data.email)
                         editor.putString("idUser", data.id.toString())
                         editor.putString("nameUser", data.name)
-                        editor.commit()
+                        editor.apply()
                         TelaHub()
-                        Toast.makeText(baseContext, response.body().toString(), Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(baseContext, response.body().toString(), Toast.LENGTH_SHORT).show()
                         Log.println(Log.INFO, "login", "log qlq coisa ae".plus(preferencias.toString()))
                     }else {
                         Toast.makeText(baseContext, "Falha ao autenticar", Toast.LENGTH_SHORT).show()

@@ -1,6 +1,7 @@
 package com.payshare.payshareapp
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -117,6 +118,12 @@ class HubFragment : Fragment() {
                         })
                 }
             }
+        })
+
+        val btnProfile : ImageView = view.findViewById(R.id.img_user_hub)
+        btnProfile.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, PerfilFragment::class.java)
+            startActivity(intent)
         })
 
         return view
