@@ -3,6 +3,6 @@
 
     <solid android:color="@color/preto_payshare"/>
     <stroke android:width="2dp" android:color="@color/verde_payshare"/>
-    <corners android:radius="50dp" />
+    <corners android:radius="10dp" />
 
 </shape>

@@ -4,69 +4,45 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
+    android:gravity="center_horizontal"
     android:background="@color/preto_payshare"
-    tools:context=".CriarLobbyFragment">
+    tools:context=".CompartilharLobbyFragment">
 
     <TextView
-        android:id="@+id/txt_adicioanar"
+        android:id="@+id/txt_compartilhar_lobby"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginTop="20dp"
-        android:text="@string/criar_lobby"
+        android:text="@string/compartilhar_amigos"
         android:textColor="@color/white"
         android:textSize="@dimen/large_title" />
 
 
 
     <EditText
-        android:id="@+id/et_descricao"
+        android:id="@+id/et_link"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="30dp"
         android:textColorHint="@color/white"
-        android:hint="Descrição*"
+        android:hint="Link*"
         android:ems="10"
         android:inputType="text" />
-
-    <EditText
-        android:id="@+id/et_descricao_pedido"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="30dp"
-        android:textColorHint="@color/white"
-        android:hint="Descrição do pedido*"
-        android:ems="10"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/et_valor_lobby"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="30dp"
-        android:textColorHint="@color/white"
-        android:hint="Valor da lobby*"
-        android:ems="10"
-        android:inputType="number" />
 
 
         <Button
-            android:id="@+id/btn_inserir"
+            android:id="@+id/btn_copiar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/bg_button_normal"
-            android:text="Criar" />
+            android:text="Copiar" />
 
 
 </LinearLayout>

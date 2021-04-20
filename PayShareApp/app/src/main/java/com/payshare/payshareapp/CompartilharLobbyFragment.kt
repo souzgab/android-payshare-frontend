@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.fragment_adicionar_dinheiro.*
 
 
-class CriarLobbyFragment : Fragment() {
+class CompartilharLobbyFragment : Fragment() {
 
     lateinit var  preferencias: SharedPreferences
 
@@ -22,7 +22,7 @@ class CriarLobbyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_criar_lobby, container, false)
+        return inflater.inflate(R.layout.fragment_compartilhar_lobby, container, false)
     }
 
 
@@ -30,7 +30,7 @@ class CriarLobbyFragment : Fragment() {
     companion object {
       @JvmStatic
       fun newInstance() =
-            CriarLobbyFragment().apply {
+            CompartilharLobbyFragment().apply {
                 arguments = Bundle().apply {}
             }
     }

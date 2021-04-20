@@ -27,6 +27,7 @@ class HubFragment : Fragment() {
     private val findUserById = Conexao.findUserById()
     lateinit var preferencias: SharedPreferences
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
