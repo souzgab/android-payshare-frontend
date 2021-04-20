@@ -5,7 +5,7 @@ import java.math.BigDecimal
 
 data class TransactionWalletData (
     @SerializedName("transactionId") var transactionDate : Int,
-    @SerializedName("amount") var amount : BigDecimal,
+    @SerializedName("amount") var amount : Double,
     @SerializedName("status") var status : String,
     @SerializedName("description") var description : String,
     @SerializedName("paymentMethod") var paymentMethod : String,

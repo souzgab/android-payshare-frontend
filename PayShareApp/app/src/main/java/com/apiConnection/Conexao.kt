@@ -1,5 +1,6 @@
 package com.apiConnection
 
+import com.apiConnection.request.lobby.LobbyRequest
 import com.apiConnection.request.user.CadastroRequest
 import com.apiConnection.request.user.LoginRequest
 import com.apiConnection.request.user.UserRequest
@@ -35,6 +36,16 @@ object Conexao {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(UserRequest::class.java)
+    }
+
+    //// Lobby
+
+    fun createLobby() : LobbyRequest{
+        return Retrofit.Builder()
+            .baseUrl(backendPath)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(LobbyRequest::class.java)
     }
 
 }
