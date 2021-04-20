@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_bottom_bar.*
 
 class BottomBarActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bottom_bar)
@@ -41,6 +42,7 @@ class BottomBarActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun mudarTela(fragment: Fragment){
         val fragmentTransition = supportFragmentManager.beginTransaction()

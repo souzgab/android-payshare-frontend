@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentTransaction
 import com.apiConnection.Conexao
 import com.apiConnection.dataClassAdapter.lobby.LobbyData

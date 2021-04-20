@@ -25,5 +25,7 @@
     <string name="email_user">payshare@gmail.com</string>
     <string name="li_e_concordo_com_os_termos_de_uso">Li e concordo com os termos de uso</string>
     <string name="mantenha_me_conectado">Mantenha-me conectado</string>
+    <string name="compartilhar_amigos">Compartilhar com amigos</string>
+    <string name="criar_lobby">Criar Lobby</string>
 
 </resources>

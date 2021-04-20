@@ -16,7 +16,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Criar Lobby"
+        android:text="@string/criar_lobby"
         android:textColor="@color/white"
         android:textSize="@dimen/large_title" />
 

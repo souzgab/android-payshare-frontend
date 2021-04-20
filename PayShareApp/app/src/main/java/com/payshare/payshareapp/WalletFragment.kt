@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
+import androidx.fragment.app.FragmentTransaction
 import com.apiConnection.Conexao
 import com.apiConnection.models.response.user.UserResponse
 import kotlinx.android.synthetic.main.fragment_wallet.*
@@ -85,10 +86,12 @@ class WalletFragment : Fragment() {
             }
         })
 
-        val btnAdicionar : AppCompatButton = view.findViewById(R.id.btn_adicionar_dinheiro)
+        val btnAdicionar : Button = view.findViewById(R.id.btn_adicionar_dinheiro)
         btnAdicionar.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, MercadoPagoCheckout::class.java)
-            startActivity(intent)
+            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+            transaction.replace(R.id.fragmentContainer, AdicionarDinheiroFragment.newInstance())
+            transaction.addToBackStack(null)
+            transaction.commit()
         })
 
         return view
