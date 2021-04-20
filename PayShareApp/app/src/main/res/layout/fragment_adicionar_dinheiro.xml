@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/preto_payshare"
+    tools:context=".AdicionarDinheiroFragment">
+
+    <TextView
+        android:id="@+id/txt_adicioanar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/adicionar_dinheiro"
+        android:textColor="@color/white"
+        android:textSize="@dimen/large_title" />
+
+
+
+    <EditText
+        android:id="@+id/editTextNumber3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:textColorHint="@color/white"
+        android:hint="Valor*"
+        android:ems="10"
+        android:inputType="number" />
+
+
+        <Button
+            android:id="@+id/btn_inserir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_button_normal"
+            android:text="Inserir" />
+
+
+</LinearLayout>
