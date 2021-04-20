@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -129,7 +130,13 @@ class HubFragment : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         })
-
+        val btnLobby : Button = view.findViewById(R.id.btn_criar_lobby)
+        btnLobby.setOnClickListener(View.OnClickListener {
+            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+            transaction.replace(R.id.fragmentContainer, CriarLobbyFragment.newInstance())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        })
 
 
 
