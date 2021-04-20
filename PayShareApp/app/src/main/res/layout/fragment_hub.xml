@@ -228,7 +228,7 @@
                 app:layout_constraintBottom_toBottomOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_adicionar_dinheiro"
+                android:id="@+id/btn_criar_lobby"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginBottom="90dp"

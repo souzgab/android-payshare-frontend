@@ -8,12 +8,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.apiConnection.Conexao
 import com.apiConnection.models.response.user.UserResponse
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.fragment_hub.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,6 +26,7 @@ class HubFragment : Fragment() {
 
     private val findUserById = Conexao.findUserById()
     lateinit var preferencias: SharedPreferences
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -122,9 +126,20 @@ class HubFragment : Fragment() {
 
         val btnProfile : ImageView = view.findViewById(R.id.img_user_hub)
         btnProfile.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, PerfilFragment::class.java)
-            startActivity(intent)
+            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+            transaction.replace(R.id.fragmentContainer, PerfilFragment.newInstance())
+            transaction.addToBackStack(null)
+            transaction.commit()
         })
+        val btnLobby : Button = view.findViewById(R.id.btn_criar_lobby)
+        btnLobby.setOnClickListener(View.OnClickListener {
+            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+            transaction.replace(R.id.fragmentContainer, CriarLobbyFragment.newInstance())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        })
+
+
 
         return view
     }
