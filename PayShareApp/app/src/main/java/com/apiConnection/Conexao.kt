@@ -1,6 +1,7 @@
 package com.apiConnection
 
 import com.apiConnection.request.lobby.LobbyRequest
+import com.apiConnection.request.transactions.TransactionWalletRequest
 import com.apiConnection.request.user.CadastroRequest
 import com.apiConnection.request.user.LoginRequest
 import com.apiConnection.request.user.UserRequest
@@ -48,4 +49,22 @@ object Conexao {
             .create(LobbyRequest::class.java)
     }
 
+    fun findByLobbyUser() : LobbyRequest{
+        return Retrofit.Builder()
+            .baseUrl(backendPath)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(LobbyRequest::class.java)
+    }
+
+
+    // Transaction
+
+    fun createTransactionWallet() : TransactionWalletRequest{
+        return Retrofit.Builder()
+            .baseUrl(backendPath)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(TransactionWalletRequest::class.java)
+    }
 }

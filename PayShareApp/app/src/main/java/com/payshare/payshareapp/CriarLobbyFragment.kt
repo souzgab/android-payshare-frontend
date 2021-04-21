@@ -51,7 +51,8 @@ class CriarLobbyFragment : Fragment() {
 
             val txtDesc = txtDescricao.text.toString()
             val txtDescPedido = txtDescricaoPedido.text.toString()
-            val txtValPedido = if (txtValorLobby.text.isBlank()) 0.0 else txtValorLobby.text.toString().toDouble()
+            val txtValPedido =
+                if (txtValorLobby.text.isBlank()) 0.0 else txtValorLobby.text.toString().toDouble()
 
             Log.e("Sucesso", "desc" + txtDesc)
             Log.e("Sucesso", "txtDescPedido" + txtDescPedido)
@@ -82,6 +83,17 @@ class CriarLobbyFragment : Fragment() {
                         ) {
                             val data = response.body()
                             if (data != null) {
+                                val editor = preferencias.edit()
+                                editor.putString("idLobby", data.id.toString())
+                                editor.apply()
+                                val transaction: FragmentTransaction =
+                                    fragmentManager!!.beginTransaction()
+                                transaction.replace(
+                                    R.id.fragmentContainer,
+                                    Sala_PagamentoFragment.newInstance()
+                                )
+                                transaction.addToBackStack(null)
+                                transaction.commit()
                                 Log.e("Sucesso", "Lobby" + Gson().toJson(data))
                             } else {
                                 Toast.makeText(context, "Falha ao criar lobby", Toast.LENGTH_SHORT)

@@ -21,7 +21,7 @@
         android:layout_alignParentBottom="true"
         app:mbn_backgroundBottomColor="@color/colorPrimary"
         app:mbn_countBackgroundColor="@color/preto_payshare"
-        app:mbn_circleColor="@color/white"
+        app:mbn_circleColor="@color/verde_payshare"
         app:mbn_defaultIconColor="@color/white"
         app:mbn_rippleColor="@color/verde_payshare"
         app:mbn_selectedIconColor="@color/colorPrimary"

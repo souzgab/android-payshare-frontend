@@ -45,22 +45,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
-                android:text="Subtotal"
+                android:text="Valor a pagar"
                 android:textColor="@color/white"
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/valor_sub_total"
+                android:id="@+id/valor_total"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
                 android:gravity="end"
-                android:text="@string/saldo_carteira"
-                android:textColor="@color/verde_payshare"
-                android:textSize="14sp"
+                android:text="R$0.00"
+                android:textColor="#E83E58"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,21 +78,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="80dp"
-                android:text="Total"
+                android:text="Total recebido"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/separador" />
 
             <TextView
-                android:id="@+id/valor_total"
+                android:id="@+id/valor_total_recebido"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
                 android:layout_marginRight="20dp"
                 android:layout_toLeftOf="@id/txt_total"
                 android:gravity="end"
-                android:text="@string/saldo_carteira"
+                android:text="R$ 0.00"
                 android:textColor="@color/verde_payshare"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
