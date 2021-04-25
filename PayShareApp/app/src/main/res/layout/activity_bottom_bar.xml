@@ -7,11 +7,19 @@
     android:background="@color/preto_payshare"
     tools:context=".BottomBarActivity">
 
-    <FrameLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/bottomNavigation"
-        android:id="@+id/fragmentContainer"/>
+        android:layout_height="wrap_content"
+        android:background="@color/preto_payshare"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="603dp"
+        android:layout_above="@id/bottomNavigation" />
 
 
     <com.etebarian.meowbottomnavigation.MeowBottomNavigation

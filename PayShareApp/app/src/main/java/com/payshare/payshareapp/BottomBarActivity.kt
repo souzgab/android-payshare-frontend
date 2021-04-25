@@ -13,6 +13,8 @@ class BottomBarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bottom_bar)
 
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         bottomNavigation.add(MeowBottomNavigation.Model(0, R.drawable.ic_home))
         bottomNavigation.add(MeowBottomNavigation.Model(1, R.drawable.ic_carteira))
@@ -22,7 +24,7 @@ class BottomBarActivity : AppCompatActivity() {
         mudarTela(HubFragment.newInstance())
 
         bottomNavigation.setOnClickMenuListener {
-            when(it.id){
+            when (it.id) {
                 0 -> {
                     mudarTela(HubFragment.newInstance())
                 }
@@ -44,13 +46,11 @@ class BottomBarActivity : AppCompatActivity() {
     }
 
 
-    private fun mudarTela(fragment: Fragment){
+    private fun mudarTela(fragment: Fragment) {
         val fragmentTransition = supportFragmentManager.beginTransaction()
-        fragmentTransition.replace(R.id.fragmentContainer,fragment).addToBackStack(Fragment::class.java.simpleName).commit()
+        fragmentTransition.replace(R.id.fragmentContainer, fragment)
+            .addToBackStack(Fragment::class.java.simpleName).commit()
     }
-
-
-
 
 
 }
