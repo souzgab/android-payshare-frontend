@@ -21,7 +21,7 @@
         android:textSize="@dimen/large_title" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_descricao_pedido"
+        android:id="@+id/cpf_favorecido"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="18dp"
@@ -38,16 +38,16 @@
         app:layout_constraintBottom_toTopOf="@id/btn_entrar" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_text_valor_lobby"
+        android:id="@+id/edit_text_valor_transfer"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="18dp"
         android:layout_marginTop="10dp"
-        android:hint="Valor da transfêrencia *"
+        android:hint="0.00"
         android:imeOptions="actionDone"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:textColor="@android:color/white"

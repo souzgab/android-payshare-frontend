@@ -57,6 +57,7 @@ class CriarLobbyFragment : Fragment() {
             Log.e("Sucesso", "desc" + txtDesc)
             Log.e("Sucesso", "txtDescPedido" + txtDescPedido)
             Log.e("Sucesso", "txtValPedido" + txtValPedido)
+
             if (validationEmptyLobby(
                     txtDescricao,
                     txtDescricaoPedido,

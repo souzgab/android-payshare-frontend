@@ -167,13 +167,26 @@
 
 
     <Button
-        android:id="@+id/btn_atualizar"
+        android:id="@+id/btn_pagar_lobby"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="80dp"
         android:layout_marginTop="48dp"
         android:background="@drawable/bg_button_normal"
         android:text="Pagar"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@+id/box_cartoes_layout"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/btn_finalizar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/bg_button_normal"
+        android:text="Finalizar lobby"
+        android:visibility="invisible"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@+id/box_cartoes_layout"
         tools:layout_editor_absoluteX="16dp" />
