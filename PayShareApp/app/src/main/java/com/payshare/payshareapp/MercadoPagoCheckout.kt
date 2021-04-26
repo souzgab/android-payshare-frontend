@@ -3,9 +3,11 @@ package com.payshare.payshareapp
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.http.SslError
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.KeyEvent
 import android.webkit.SslErrorHandler
 import android.webkit.WebChromeClient
@@ -17,6 +19,8 @@ import kotlinx.android.synthetic.main.activity_mercado_pago.*
 
 class MercadoPagoCheckout : AppCompatActivity() {
 
+    lateinit var  preferencias: SharedPreferences
+
     companion object {
         const val PAGE_URL = ""
         const val MAX_PROGRESS = 100
@@ -27,11 +31,21 @@ class MercadoPagoCheckout : AppCompatActivity() {
         }
     }
     private lateinit var pageUrl: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mercado_pago)
+
+        preferencias = getSharedPreferences("Auth", MODE_PRIVATE)
+        val idUser = preferencias.getString("idUser", null)
+        val token = preferencias.getString("Auth", null)
+        val initPoint = preferencias.getString("initPoint", null)
+
         // get pageUrl from String
-        pageUrl = "https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=224099046-3fefbab8-c1c4-4569-bf40-cb9ff7dedc3f"
+
+        Log.e("Sucessoo", "INIT POINT " + initPoint.toString())
+
+        pageUrl = "${initPoint.toString()}"
         initWebView()
         setWebClient()
         handlePullToRefresh()

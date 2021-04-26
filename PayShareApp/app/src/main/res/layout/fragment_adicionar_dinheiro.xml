@@ -30,10 +30,11 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:hint="0.00"
         android:textColorHint="@color/white"
-        android:hint="Valor*"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="numberDecimal" />
 
 
         <Button
