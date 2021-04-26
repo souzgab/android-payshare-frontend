@@ -7,15 +7,7 @@
     android:background="@color/preto_payshare"
     tools:context=".Sala_PagamentoFragment">
 
-    <Button
-        android:layout_width="40dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/btn_voltar"
-        android:textColor="@android:color/darker_gray"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/page_sala_pagamento"
