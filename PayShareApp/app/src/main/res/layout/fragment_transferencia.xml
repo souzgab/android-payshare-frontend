@@ -16,36 +16,19 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginTop="20dp"
-        android:text="@string/criar_lobby"
+        android:text="Transferência entre contas"
         android:textColor="@color/white"
         android:textSize="@dimen/large_title" />
 
-
-
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_nome_lobby"
+        android:id="@+id/cpf_favorecido"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="18dp"
-        android:hint="Nome da lobby*"
-        android:inputType="text"
-        android:paddingStart="18dp"
-        android:paddingEnd="18dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@id/edit_text_senha" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_descricao_pedido"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="18dp"
-        android:layout_marginTop="10dp"
-        android:hint="Descrição pedido*"
+        android:layout_marginTop="30dp"
+        android:hint="Cpf do favorecido *"
         android:imeOptions="actionDone"
         android:inputType="text"
         android:paddingStart="18dp"
@@ -55,14 +38,14 @@
         app:layout_constraintBottom_toTopOf="@id/btn_entrar" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_text_valor_lobby"
+        android:id="@+id/edit_text_valor_transfer"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="18dp"
         android:layout_marginTop="10dp"
-        android:hint="Valor lobby"
+        android:hint="0.00"
         android:imeOptions="actionDone"
         android:inputType="numberDecimal"
         android:paddingStart="18dp"
@@ -72,15 +55,15 @@
         app:layout_constraintBottom_toTopOf="@id/btn_entrar" />
 
 
-        <Button
-            android:id="@+id/btn_inserir"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/bg_button_normal"
-            android:text="Criar" />
+    <Button
+        android:id="@+id/btn_inserir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_button_normal"
+        android:text="Transferir" />
 
 
 </LinearLayout>

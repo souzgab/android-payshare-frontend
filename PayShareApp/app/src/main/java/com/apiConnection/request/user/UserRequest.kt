@@ -8,5 +8,15 @@ interface UserRequest {
 
     @Headers("Content-Type: application/json")
     @GET(value = "v1/payshare/user/{id}")
-    fun findUserById(@Path ("id") id : Int , @Header ("Authorization") token : String): Call<UserResponse>
+    fun findUserById(
+        @Path("id") id: Int,
+        @Header("Authorization") token: String
+    ): Call<UserResponse>
+
+    @Headers("Content-Type: application/json")
+    @GET(value = "v1/payshare/user/cpf/{cpfDocument}")
+    fun findUserByCpf(
+        @Path("cpfDocument") id: String,
+        @Header("Authorization") token: String
+    ): Call<UserResponse>
 }

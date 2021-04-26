@@ -10,10 +10,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ScrollView
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.apiConnection.Conexao
+import com.apiConnection.models.response.lobby.LobbyResponse
 import com.apiConnection.models.response.user.UserResponse
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_hub.*
@@ -25,6 +29,7 @@ import retrofit2.Response
 class HubFragment : Fragment() {
 
     private val findUserById = Conexao.findUserById()
+    private val findByLobbyUser = Conexao.findByLobbyUser()
     lateinit var preferencias: SharedPreferences
 
 
@@ -37,12 +42,14 @@ class HubFragment : Fragment() {
 
         //============= recuperando dados amarzenado em cache ========================
         preferencias =
-            this.activity!!.getSharedPreferences("Auth", Context.MODE_PRIVATE)
+            this.requireActivity().getSharedPreferences("Auth", Context.MODE_PRIVATE)
         val idUser = preferencias.getString("idUser", null)
         val token = preferencias.getString("Auth", null)
         var nameUser = preferencias.getString("nameUser", null)
         var moneyShared = preferencias.getFloat("userAmount", 0.00F)
+        var idLobby = preferencias.getString("idLobby", null)
         // ============================================================================
+
         // ================== caso tenha valor e nome em cache  =======================
         var saldoContaShared: TextView = view.findViewById(R.id.txt_valor_saldo)
         saldoContaShared.hint = "R$ ${moneyShared.toString()}"
@@ -50,6 +57,7 @@ class HubFragment : Fragment() {
         var nomeUser: TextView = view.findViewById(R.id.name_user)
         nomeUser.text = nameUser
         // ============================================================================
+
 
         //========= Busca informações do usuario ======================================
         idUser?.toInt()?.let {
@@ -79,6 +87,47 @@ class HubFragment : Fragment() {
                     }
                 })
         }
+
+        //========= Busca informações da lobby do usuario ======================================
+        idUser?.toInt()?.let {
+            findByLobbyUser.findLobbyUser(it, "Bearer " + token.toString())
+                .enqueue(object : Callback<LobbyResponse> {
+                    override fun onResponse(
+                        call: Call<LobbyResponse>,
+                        response: Response<LobbyResponse>
+                    ) {
+                        var data = response.body()
+
+                        if (data != null) {
+                            val editor = preferencias.edit()
+                            val boxAtivaLobby : ScrollView = view.findViewById(R.id.box_lobby_ativa)
+                            val lobbyName : TextView = view.findViewById(R.id.txt_nome_ativo_lobby)
+                            boxAtivaLobby.visibility = View.VISIBLE
+                            editor.putString("idLobby", data.id.toString())
+                            editor.apply()
+                            lobbyName.text = "${data.lobbyDescription}"
+                            Log.e("Sucesso", "idLobbyyyyyy" + idLobby.toString())
+                            Log.e("Sucesso", "lobbyUser" + Gson().toJson(data))
+                        } else {
+                            val editor = preferencias.edit()
+                            editor.remove("idLobby")
+                            editor.apply()
+                            val boxAtivaLobby : ScrollView = view.findViewById(R.id.box_lobby_ativa)
+                            val boxLobbyOff : ScrollView = view.findViewById(R.id.box_criar_lobby)
+                            boxAtivaLobby.visibility = View.INVISIBLE
+                            boxLobbyOff.visibility = View.VISIBLE
+                        }
+
+                    }
+
+                    override fun onFailure(call: Call<LobbyResponse>, t: Throwable) {
+                        Log.e("Erro", "erro " + t.message)
+                    }
+                })
+        }
+
+
+
         //================================ fim da consulta =======================================
 
         /// ESTA PARTE FAZ UM BUSCA NO BANCO PARA REVELAR O DINHEIRO
@@ -139,7 +188,29 @@ class HubFragment : Fragment() {
             transaction.commit()
         })
 
+        val btnAdicionaDinheiro : ImageView = view.findViewById(R.id.img_add_dinheiro)
+        btnAdicionaDinheiro.setOnClickListener {
+            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+            transaction.replace(R.id.fragmentContainer, AdicionarDinheiroFragment.newInstance())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
+        val btnTransferir : ImageView = view.findViewById(R.id.img_transferir)
+        btnTransferir.setOnClickListener {
+            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+            transaction.replace(R.id.fragmentContainer, TransferenciaEntreContas.newInstance())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        val btnEntrarLobby : AppCompatButton = view.findViewById(R.id.btn_entrar_lobby)
+        btnEntrarLobby.setOnClickListener {
+            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+            transaction.replace(R.id.fragmentContainer, Sala_PagamentoFragment.newInstance())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
         return view
     }
