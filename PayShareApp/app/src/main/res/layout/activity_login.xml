@@ -131,7 +131,6 @@
             android:textAlignment="center"
             android:text="@string/ainda_n_o_possui_cadastro"
             android:textColor="@color/white"
-
             android:textSize="16sp" />
         <TextView
             android:id="@+id/tv_cadastro"
