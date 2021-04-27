@@ -6,14 +6,14 @@
     <string name="cadastro">Cadastre-se</string>
     <string name="login">Login</string>
     <string name="entrar_google">Entrar com a conta Google</string>
-    <string name="email">Email*</string>
-    <string name="senha">Senha*</string>
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
     <string name="entrar">Entrar</string>
     <string name="esqueci_senha">Esqueci minha senha</string>
     <string name="sem_cadastro">Ainda não possui cadastro?</string>
     <string name="clique_aqui">Clique aqui</string>
-    <string name="nome">Nome*</string>
-    <string name="cpf">CPF*</string>
+    <string name="nome">Nome</string>
+    <string name="cpf">CPF</string>
     <string name="confirmar_senha">Confirme sua senha*</string>
     <string name="carteira">Carteira</string>
     <string name="adicionar_dinheiro">Adicionar dinheiro na carteira</string>
@@ -38,5 +38,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="compartilhar_amigos">Compartilhar com amigos</string>
     <string name="criar_lobby">Criar Lobby</string>
+    <string name="ainda_n_o_possui_cadastro">Ainda não possui cadastro?</string>
 
 </resources>

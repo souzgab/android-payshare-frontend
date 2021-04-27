@@ -10,8 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Conexao {
 
-    //private const val backendPath: String = "http://10.0.2.2:8080/"
-   private const val backendPath: String = "http://payshare.ddns.net/"
+   //private const val backendPath: String = "http://10.0.2.2:8080/"
+     private const val backendPath: String = "http://payshare.ddns.net/"
    //private const val backendPath: String = "https://paysharedev.herokuapp.com/"
 
     fun loginApi() : LoginRequest {

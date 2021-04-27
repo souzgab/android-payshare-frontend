@@ -3,6 +3,7 @@ package com.payshare.payshareapp
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.EditText
@@ -36,9 +37,10 @@ class LoginActivity : AppCompatActivity() {
     fun entrar(view: View) {
         val etLogin: EditText = findViewById(R.id.edit_text_email)
         val etSenha: EditText = findViewById(R.id.edit_text_senha)
+        validateForm()
         val email = etLogin.text.toString()
         val password = etSenha.text.toString()
-        Log.println(Log.INFO, "login", "log ".plus(email + password))
+
         if(loginValidation(email, etSenha)){
             val loginDt =
                 LoginData(
@@ -64,8 +66,7 @@ class LoginActivity : AppCompatActivity() {
                         editor.apply()
                         TelaHub()
                         //Toast.makeText(baseContext, response.body().toString(), Toast.LENGTH_SHORT).show()
-                        Log.println(Log.INFO, "login", "log qlq coisa ae".plus(preferencias.toString()))
-                    }else {
+                    } else {
                         Toast.makeText(baseContext, "Falha ao autenticar", Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -82,6 +83,17 @@ class LoginActivity : AppCompatActivity() {
 
     private fun loginValidation(email: String, password: EditText): Boolean {
         return email.isNotEmpty() && password.text.isNotEmpty()
+    }
+
+    fun validateForm() {
+        val etLogin: EditText = findViewById(R.id.edit_text_email)
+        val etSenha: EditText = findViewById(R.id.edit_text_senha)
+
+        if (TextUtils.isEmpty(etLogin.text)){
+            etLogin.setError("E-mail é obrigatório para entrar!")
+        } else if (TextUtils.isEmpty(etSenha.text)) {
+            etSenha.setError("Senha é obrigatório para entrar!")
+        }
     }
 
     fun viewCadastro(view: View) {
