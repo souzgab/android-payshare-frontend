@@ -11,7 +11,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.apiConnection.models.response.user.UserResponse
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation
+import kotlinx.android.synthetic.main.activity_bottom_bar.*
 import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,7 +31,7 @@ class PerfilFragment : Fragment() {
     ): View? {
         val view : View = inflater.inflate(R.layout.fragment_perfil, container, false)
         preferencias =
-            this.activity!!.getSharedPreferences("Auth", Context.MODE_PRIVATE)
+            this.requireActivity().getSharedPreferences("Auth", Context.MODE_PRIVATE)
         val idUser = preferencias.getString("idUser", null)
         val token = preferencias.getString("Auth", null)
         var nameUser = preferencias.getString("nameUser", null)
