@@ -11,18 +11,25 @@
         android:id="@+id/image_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="100dp"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/payshare"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/payshare" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/scv_cadastro"
         app:layout_constraintTop_toBottomOf="@id/image_logo"
-        tools:layout_editor_absoluteX="16dp">
+        tools:layout_editor_absoluteX="16dp"
+        android:isScrollContainer="true"
+        android:scrollbars="vertical"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,8 +38,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="10dp"
             android:orientation="vertical"
-            android:layout_gravity="center"
-
+            android:id="@+id/llt_cadastro"
             >
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -47,8 +53,9 @@
                 android:inputType="textPersonName"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
+                android:textSize="15dp"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
                 app:layout_constraintBottom_toTopOf="@id/edit_text_cpf" />
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -59,11 +66,12 @@
                 android:layout_marginEnd="18dp"
                 android:layout_marginBottom="18dp"
                 android:hint="@string/cpf"
+                android:textSize="15dp"
                 android:inputType="text"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
                 app:layout_constraintBottom_toTopOf="@id/edit_text_email" />
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -74,11 +82,13 @@
                 android:layout_marginEnd="18dp"
                 android:layout_marginBottom="18dp"
                 android:hint="@string/email"
+                android:textSize="15dp"
+                android:imeOptions="actionDone"
                 android:inputType="textEmailAddress"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
                 app:layout_constraintBottom_toTopOf="@id/edit_text_senha" />
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -90,11 +100,12 @@
                 android:layout_marginBottom="18dp"
                 android:hint="@string/senha"
                 android:imeOptions="actionDone"
+                android:textSize="15dp"
                 android:inputType="textPassword"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
                 app:layout_constraintBottom_toTopOf="@id/edit_text_confirma_senha" />
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -108,9 +119,10 @@
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 android:paddingStart="18dp"
+                android:textSize="15dp"
                 android:paddingEnd="18dp"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
                 app:layout_constraintBottom_toTopOf="@id/btn_cadastro" />
 
 
@@ -122,7 +134,7 @@
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="60dp"
                 android:background="@drawable/bg_button_normal"
-                android:text="Cadastrar"
+                android:text="@string/cadastrar"
                 android:textAllCaps="false"
                 android:onClick="cadastrarUsuario"
                 android:textColor="@android:color/white"
@@ -132,12 +144,13 @@
                 app:layout_constraintBottom_toTopOf="@id/checkbox" />
 
             <androidx.appcompat.widget.AppCompatCheckBox
-                android:id="@+id/checkbox"
+                android:id="@+id/ch_cadastro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="-50dp"
                 android:layout_marginEnd="30dp"
+                android:onClick="isAgree"
                 android:text="Li e concordo com os termos de uso"
                 android:textColor="@color/white"
                 app:layout_constraintTop_toBottomOf="@+id/btn_cadastro" />

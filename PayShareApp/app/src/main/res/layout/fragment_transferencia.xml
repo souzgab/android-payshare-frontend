@@ -16,9 +16,20 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Transferência entre contas"
+        android:text="Transferência"
         android:textColor="@color/white"
         android:textSize="@dimen/large_title" />
+
+    <TextView
+        android:id="@+id/txt_describe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/realize_transfer_ncias_de_valores_para_qualquer_conta_payshare_desc"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
+
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/cpf_favorecido"
@@ -28,13 +39,14 @@
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="18dp"
         android:layout_marginTop="30dp"
-        android:hint="Cpf do favorecido *"
+        android:hint="CPF"
         android:imeOptions="actionDone"
         android:inputType="text"
+        android:textSize="15dp"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/darker_gray"
+        android:textColorHint="@android:color/darker_gray"
         app:layout_constraintBottom_toTopOf="@id/btn_entrar" />
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -48,10 +60,11 @@
         android:hint="0.00"
         android:imeOptions="actionDone"
         android:inputType="numberDecimal"
+        android:textSize="15dp"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
         app:layout_constraintBottom_toTopOf="@id/btn_entrar" />
 
 
@@ -62,6 +75,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="30dp"
+        android:textColor="@color/white"
         android:background="@drawable/bg_button_normal"
         android:text="Transferir" />
 

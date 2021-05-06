@@ -14,7 +14,7 @@
     <string name="clique_aqui">Clique aqui</string>
     <string name="nome">Nome</string>
     <string name="cpf">CPF</string>
-    <string name="confirmar_senha">Confirme sua senha*</string>
+    <string name="confirmar_senha">Confirme sua senha</string>
     <string name="carteira">Carteira</string>
     <string name="adicionar_dinheiro">Adicionar dinheiro na carteira</string>
     <string name="adicionar_pagamento">Adicionar pagamento</string>
@@ -39,5 +39,8 @@
     <string name="compartilhar_amigos">Compartilhar com amigos</string>
     <string name="criar_lobby">Criar Lobby</string>
     <string name="ainda_n_o_possui_cadastro">Ainda não possui cadastro?</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="adicionar_dinheiro_desc">Adicionar Dinheiro</string>
+    <string name="realize_transfer_ncias_de_valores_para_qualquer_conta_payshare_desc">Realize transferências de valores para qualquer conta payshare.</string>
 
 </resources>

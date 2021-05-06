@@ -6,15 +6,15 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/toolbar"
+        android:icon="@mipmap/ic_launcher_round"
+        android:label="Payshare"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity_card_sala_pagamento"></activity>
+
         <activity
-            android:name=".Activity_card_sala_pagamento"
+            android:name=".activity_card_sala_pagamento"
             android:label="@string/title_activity_card_sala_pagamento"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activity_card_extrato" />
@@ -25,7 +25,9 @@
             />
         <activity android:name=".LoginActivity"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".CadastroActivity" />
+        <activity android:name=".CadastroActivity"
+            android:windowSoftInputMode="adjustPan|stateVisible"
+            />
         <activity android:name=".SplashActivity" android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

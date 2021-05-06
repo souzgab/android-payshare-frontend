@@ -1,12 +1,13 @@
 package com.payshare.payshareapp
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import com.apiConnection.Conexao
 import com.apiConnection.dataClassAdapter.user.CadastroData
 import com.apiConnection.models.response.user.CadastroResponse
@@ -20,6 +21,13 @@ class CadastroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro)
+
+        var id: Int = resources.getIdentifier("bg_button_clear_red", "drawable", packageName)
+
+        findViewById<Button>(R.id.btn_cadastro).isClickable = false
+        findViewById<Button>(R.id.btn_cadastro).background = resources.getDrawable(id)
+        findViewById<Button>(R.id.btn_cadastro).text = "Concorde Termos"
+        findViewById<Button>(R.id.btn_cadastro).setTextColor(Color.parseColor("#f0f0f0"))
     }
 
     private fun redirectLogin(){
@@ -55,15 +63,12 @@ class CadastroActivity : AppCompatActivity() {
            cpf.text.toString(),
            rg
        )
-        Log.println(Log.INFO, "user", "log ".plus(user.toString()))
         if (validateUser(user)) {
-            Log.println(Log.INFO, "user", "log ".plus("entrei"))
             cadastroApi.postCadastro(user).enqueue(object : Callback<CadastroResponse> {
                 override fun onResponse(
                     call: Call<CadastroResponse>,
                     response: Response<CadastroResponse>
                 ) {
-                    Log.println(Log.INFO, "user", "log ".plus(response.toString()))
                     val data = response.body()
                     if (data != null) {
                         responseCadastro = data
@@ -82,9 +87,60 @@ class CadastroActivity : AppCompatActivity() {
         }
     }
 
-
     private fun validateUser(user: CadastroData) : Boolean {
-        return user.email.isNotEmpty() && user.password.isNotEmpty()
+        var valid = true
+        val nome = findViewById<EditText>(R.id.edit_text_nome)
+        val cpf = findViewById<EditText>(R.id.edit_text_cpf)
+        val email = findViewById<EditText>(R.id.edit_text_email)
+        val senha = findViewById<EditText>(R.id.edit_text_senha)
+        val confirmaSenha = findViewById<EditText>(R.id.edit_text_confirma_senha)
+
+        when {
+            nome.text.isEmpty() -> {
+                valid = false
+                nome.error = "Nome precisa ser preenchido!"
+            }
+            cpf.text.isEmpty() -> {
+                valid = false
+                cpf.error = "CPF precisa ser preenchido!"
+            }
+            email.text.isEmpty() -> {
+                valid = false
+                email.error = "E-mail precisa ser preenchido!"
+            }
+            senha.text.isEmpty() -> {
+                valid = false
+                senha.error = "Senha precisa ser preenchida!"
+            }
+            confirmaSenha.text.isEmpty() -> {
+                valid = false
+                confirmaSenha.error = "Confirme sua senha!"
+            }
+            senha.text.toString() != confirmaSenha.text.toString() -> {
+                valid = false
+                confirmaSenha.error = "Suas senhas estão diferentes!"
+            }
+            senha.text.length < 6 -> {
+                valid = false
+                senha.error = "Sua senha possui menos de 6 Caracteres"
+            }
+        }
+        return valid
     }
 
+    fun isAgree(view: View) {
+        if (findViewById<CheckBox>(R.id.ch_cadastro).isChecked) run {
+            var id: Int = resources.getIdentifier("bg_button_normal", "drawable", packageName)
+            findViewById<Button>(R.id.btn_cadastro).isClickable = true
+            findViewById<Button>(R.id.btn_cadastro).background = resources.getDrawable(id)
+            findViewById<Button>(R.id.btn_cadastro).text = "Cadastrar"
+            findViewById<Button>(R.id.btn_cadastro).setTextColor(Color.parseColor("#f0f0f0"))
+        } else {
+            var id: Int = resources.getIdentifier("bg_button_clear_red", "drawable", packageName)
+            findViewById<Button>(R.id.btn_cadastro).isClickable = false
+            findViewById<Button>(R.id.btn_cadastro).background = resources.getDrawable(id)
+            findViewById<Button>(R.id.btn_cadastro).text = "Concorde Termos"
+            findViewById<Button>(R.id.btn_cadastro).setTextColor(Color.parseColor("#f0f0f0"))
+        }
+    }
 }

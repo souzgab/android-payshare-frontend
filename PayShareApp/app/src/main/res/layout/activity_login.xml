@@ -91,11 +91,12 @@
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatCheckBox
-                android:id="@+id/checkbox"
+                android:id="@+id/ch_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
+                android:onClick="stayConnected"
                 android:text="Mantenha-me conectado"
                 android:textColor="@android:color/darker_gray"
                 app:layout_constraintTop_toBottomOf="@+id/btn_entrar" />

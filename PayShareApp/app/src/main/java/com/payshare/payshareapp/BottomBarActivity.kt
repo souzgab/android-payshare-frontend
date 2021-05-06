@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_bottom_bar.*
 
 class BottomBarActivity : AppCompatActivity() {
 
-    lateinit var  preferencias: SharedPreferences
+    lateinit var preferencias: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +41,7 @@ class BottomBarActivity : AppCompatActivity() {
             bottomNavigation.show(0, true)
             mudarTela(HubFragment.newInstance())
         }
+
 
         bottomNavigation.setOnClickMenuListener {
             supportActionBar?.show()
@@ -85,5 +86,8 @@ class BottomBarActivity : AppCompatActivity() {
             .addToBackStack(Fragment::class.java.simpleName).commit()
     }
 
+    fun changeIcon(id: Int) {
+        bottomNavigation.show(id)
+    }
 }
 
