@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -103,5 +104,15 @@ class LoginActivity : AppCompatActivity() {
 
     private fun TelaHub(){
         startActivity(Intent(this, BottomBarActivity::class.java))
+    }
+
+    fun stayConnected(view: View) {
+        if(findViewById<CheckBox>(R.id.ch_login).isChecked){
+            preferencias.edit().putString("stayOn", "true")
+            preferencias.edit().apply()
+        } else {
+            preferencias.edit().putString("stayOn", "false")
+            preferencias.edit().apply()
+        }
     }
 }

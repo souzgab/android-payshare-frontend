@@ -179,6 +179,7 @@ class HubFragment : Fragment() {
             transaction.replace(R.id.fragmentContainer, PerfilFragment.newInstance())
             transaction.addToBackStack(null)
             transaction.commit()
+            (activity as BottomBarActivity).changeIcon(4)
         })
         val btnLobby : Button = view.findViewById(R.id.btn_criar_lobby)
         btnLobby.setOnClickListener(View.OnClickListener {
