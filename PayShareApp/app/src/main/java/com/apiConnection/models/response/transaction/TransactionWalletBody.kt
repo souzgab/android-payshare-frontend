@@ -4,7 +4,7 @@ import java.math.BigDecimal
 
 data class TransactionWalletBody (
     val transactionId : Int,
-    val amount : BigDecimal,
+    val amount : Double,
     val status : String,
     val description : String,
     val paymentMethod : String,

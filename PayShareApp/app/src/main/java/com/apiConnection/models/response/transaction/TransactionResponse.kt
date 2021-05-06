@@ -5,7 +5,7 @@ import java.math.BigDecimal
 
 data class TransactionResponse (
    val transactionDate : Int,
-   val amount : BigDecimal,
+   val amount : Double,
    val status : String,
    val description : String,
    val paymentMethod : String,

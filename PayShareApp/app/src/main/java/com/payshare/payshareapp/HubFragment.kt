@@ -19,7 +19,9 @@ import androidx.fragment.app.FragmentTransaction
 import com.apiConnection.Conexao
 import com.apiConnection.models.response.lobby.LobbyResponse
 import com.apiConnection.models.response.user.UserResponse
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_bottom_bar.*
 import kotlinx.android.synthetic.main.fragment_hub.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -39,6 +41,7 @@ class HubFragment : Fragment() {
     ): View? {
 
         val view: View = inflater.inflate(R.layout.fragment_hub, container, false)
+        val bottom : View  = inflater.inflate(R.layout.activity_bottom_bar, container, false)
 
         //============= recuperando dados amarzenado em cache ========================
         preferencias =
@@ -175,15 +178,15 @@ class HubFragment : Fragment() {
 
         val btnProfile : ImageView = view.findViewById(R.id.img_user_hub)
         btnProfile.setOnClickListener(View.OnClickListener {
-            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+            val transaction : FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.replace(R.id.fragmentContainer, PerfilFragment.newInstance())
-            transaction.addToBackStack(null)
+            transaction.addToBackStack(PerfilFragment::class.java.simpleName)
             transaction.commit()
             (activity as BottomBarActivity).changeIcon(4)
         })
         val btnLobby : Button = view.findViewById(R.id.btn_criar_lobby)
         btnLobby.setOnClickListener(View.OnClickListener {
-            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+            val transaction : FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.replace(R.id.fragmentContainer, CriarLobbyFragment.newInstance())
             transaction.addToBackStack(null)
             transaction.commit()
@@ -191,7 +194,7 @@ class HubFragment : Fragment() {
 
         val btnAdicionaDinheiro : ImageView = view.findViewById(R.id.img_add_dinheiro)
         btnAdicionaDinheiro.setOnClickListener {
-            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+            val transaction : FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.replace(R.id.fragmentContainer, AdicionarDinheiroFragment.newInstance())
             transaction.addToBackStack(null)
             transaction.commit()
@@ -199,7 +202,7 @@ class HubFragment : Fragment() {
 
         val btnTransferir : ImageView = view.findViewById(R.id.img_transferir)
         btnTransferir.setOnClickListener {
-            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+            val transaction : FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.replace(R.id.fragmentContainer, TransferenciaEntreContas.newInstance())
             transaction.addToBackStack(null)
             transaction.commit()
@@ -207,7 +210,7 @@ class HubFragment : Fragment() {
 
         val btnEntrarLobby : AppCompatButton = view.findViewById(R.id.btn_entrar_lobby)
         btnEntrarLobby.setOnClickListener {
-            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+            val transaction : FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.replace(R.id.fragmentContainer, Sala_PagamentoFragment.newInstance())
             transaction.addToBackStack(null)
             transaction.commit()

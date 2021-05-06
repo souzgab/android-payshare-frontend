@@ -77,6 +77,7 @@ class BottomBarActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
 
     private fun mudarTela(fragment: Fragment) {
