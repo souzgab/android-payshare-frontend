@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.fragment_hub.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.Serializable
 
 
 class HubFragment : Fragment() {
@@ -39,7 +40,7 @@ class HubFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        (activity as BottomBarActivity).changeTitulo(0)
         val view: View = inflater.inflate(R.layout.fragment_hub, container, false)
         val bottom : View  = inflater.inflate(R.layout.activity_bottom_bar, container, false)
 
@@ -52,7 +53,7 @@ class HubFragment : Fragment() {
         var moneyShared = preferencias.getFloat("userAmount", 0.00F)
         var idLobby = preferencias.getString("idLobby", null)
         // ============================================================================
-
+        Log.println(Log.INFO, "txty", preferencias.toString())
         // ================== caso tenha valor e nome em cache  =======================
         var saldoContaShared: TextView = view.findViewById(R.id.txt_valor_saldo)
         saldoContaShared.hint = "R$ ${moneyShared.toString()}"

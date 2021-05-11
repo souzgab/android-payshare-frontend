@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.google.gson.Gson
@@ -22,8 +23,9 @@ class BottomBarActivity : AppCompatActivity() {
         preferencias = getSharedPreferences("Auth", MODE_PRIVATE)
         var lobbySession = preferencias.getString("idLobby", null)
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(tb_toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
 
 
         bottomNavigation.add(MeowBottomNavigation.Model(0, R.drawable.ic_home))
@@ -37,9 +39,12 @@ class BottomBarActivity : AppCompatActivity() {
             bottomNavigation.show(2, true)
             mudarTela(Sala_PagamentoFragment.newInstance())
             supportActionBar?.hide()
+            supportActionBar?.title = ""
         } else {
             bottomNavigation.show(0, true)
             mudarTela(HubFragment.newInstance())
+            supportActionBar?.hide()
+            supportActionBar?.title = ""
         }
 
 
@@ -78,6 +83,7 @@ class BottomBarActivity : AppCompatActivity() {
             }
         }
 
+        this.changeTitulo(0)
     }
 
     private fun mudarTela(fragment: Fragment) {
@@ -88,6 +94,34 @@ class BottomBarActivity : AppCompatActivity() {
 
     fun changeIcon(id: Int) {
         bottomNavigation.show(id)
+    }
+
+    fun changeTitulo(id: Int) {
+        when(id) {
+            0 -> {
+                supportActionBar?.hide()
+                supportActionBar?.elevation = 100F
+                supportActionBar?.title = ""
+            }
+            1 -> {
+                supportActionBar?.elevation = 100F
+                supportActionBar?.title = "Extrato"
+            }
+            2 -> {
+                supportActionBar?.elevation = 100F
+                supportActionBar?.title = "Sala de Pagamento"
+            }
+            3 -> {
+                supportActionBar?.elevation = 100F
+                supportActionBar?.title = "Carteira"
+            }
+            4 -> {
+                supportActionBar?.elevation = 100F
+                supportActionBar?.title = "Perfil"
+            } else -> {
+                supportActionBar?.title = ""
+            }
+        }
     }
 }
 

@@ -30,6 +30,7 @@ class WalletFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as BottomBarActivity).changeTitulo(3)
         val view:View = inflater.inflate(R.layout.fragment_wallet, container, false)
 
         //============= recuperando dados amarzenado em cache ========================

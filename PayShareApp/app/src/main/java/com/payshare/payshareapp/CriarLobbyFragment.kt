@@ -35,6 +35,7 @@ class CriarLobbyFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as BottomBarActivity).changeTitulo(0)
         val view: View = inflater.inflate(R.layout.fragment_criar_lobby, container, false)
 
         val btnInserirDinheiro: Button = view.findViewById(R.id.btn_inserir)

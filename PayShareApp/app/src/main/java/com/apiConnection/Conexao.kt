@@ -1,5 +1,6 @@
 package com.apiConnection
 
+import com.apiConnection.dataClassAdapter.transactions.TransactionData
 import com.apiConnection.request.lobby.LobbyRequest
 import com.apiConnection.request.transactions.TransactionRequest
 import com.apiConnection.request.user.CadastroRequest
@@ -10,8 +11,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Conexao {
 
-   //private const val backendPath: String = "http://10.0.2.2:8080/"
-     private const val backendPath: String = "http://payshare.ddns.net/"
+   private const val backendPath: String = "http://3.211.150.177/"
+//     private const val backendPath: String = "http://payshare.ddns.net/"
    //private const val backendPath: String = "https://paysharedev.herokuapp.com/"
 
     fun loginApi() : LoginRequest {
@@ -61,6 +62,15 @@ object Conexao {
     // Transaction
 
     fun createTransactionWallet() : TransactionRequest{
+        return Retrofit.Builder()
+            .baseUrl(backendPath)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(TransactionRequest::class.java)
+    }
+
+    //
+    fun consulta(): TransactionRequest {
         return Retrofit.Builder()
             .baseUrl(backendPath)
             .addConverterFactory(GsonConverterFactory.create())
