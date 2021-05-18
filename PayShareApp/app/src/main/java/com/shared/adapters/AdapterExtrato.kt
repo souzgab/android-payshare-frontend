@@ -1,13 +1,17 @@
 package com.shared.adapters
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.apiConnection.dataClassAdapter.transactions.TransactionData
 import com.payshare.payshareapp.ExtratoFragment
 import com.payshare.payshareapp.R
 import com.shared.holders.HolderExtrato
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class AdapterExtrato constructor() : RecyclerView.Adapter<HolderExtrato>() {
     lateinit var modelo: List<TransactionData>
@@ -24,12 +28,9 @@ class AdapterExtrato constructor() : RecyclerView.Adapter<HolderExtrato>() {
 
     override fun onBindViewHolder(holder: HolderExtrato, position: Int) {
         // 3 adicionar o holder instanciado na outra classe
-        holder.dataPagamento.text = modelo[position].expirationDate
-        holder.description.text = (modelo[position].description)
+        holder.dataPagamento.text = modelo[position].expirationDate;
         holder.descExtract.text = (modelo[position].description)
         holder.valorExtract.text = (modelo[position].amount.toString())
-
-
     }
 
     override fun getItemCount(): Int {
