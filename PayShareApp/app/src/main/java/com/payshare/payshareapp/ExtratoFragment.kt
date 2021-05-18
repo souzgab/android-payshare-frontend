@@ -25,7 +25,7 @@ class ExtratoFragment : Fragment() {
 
         //============= recuperando dados amarzenado em cache ========================
         preferencias =
-            this.activity!!.getSharedPreferences("Auth", Context.MODE_PRIVATE)
+            this.requireActivity().getSharedPreferences("Auth", Context.MODE_PRIVATE)
         val idUser = preferencias.getString("idUser", null)
         val token = preferencias.getString("Auth", null)
         var nameUser = preferencias.getString("nameUser", null)

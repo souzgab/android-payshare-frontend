@@ -35,7 +35,7 @@ class AdicionarDinheiroFragment : Fragment() {
     ): View? {
         val view : View = inflater.inflate(R.layout.fragment_adicionar_dinheiro, container, false)
         preferencias =
-            this.activity!!.getSharedPreferences("Auth", Context.MODE_PRIVATE)
+            this.requireActivity().getSharedPreferences("Auth", Context.MODE_PRIVATE)
         val idUser = preferencias.getString("idUser", null)
         val token = preferencias.getString("Auth", null)
 
