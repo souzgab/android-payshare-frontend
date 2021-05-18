@@ -26,6 +26,10 @@ class AdapterExtrato constructor() : RecyclerView.Adapter<HolderExtrato>() {
         // 3 adicionar o holder instanciado na outra classe
         holder.dataPagamento.text = modelo[position].expirationDate
         holder.description.text = (modelo[position].description)
+        holder.descExtract.text = (modelo[position].description)
+        holder.valorExtract.text = (modelo[position].amount.toString())
+
+
     }
 
     override fun getItemCount(): Int {
