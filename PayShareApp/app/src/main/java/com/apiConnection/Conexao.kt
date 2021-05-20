@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Conexao {
 
-   private const val backendPath: String = "http://3.211.150.177/"
+   private const val backendPath: String = "http://34.194.50.29/"
 //     private const val backendPath: String = "http://payshare.ddns.net/"
    //private const val backendPath: String = "https://paysharedev.herokuapp.com/"
 

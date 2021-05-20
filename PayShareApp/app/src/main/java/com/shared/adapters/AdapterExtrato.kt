@@ -10,6 +10,7 @@ import com.apiConnection.dataClassAdapter.transactions.TransactionData
 import com.payshare.payshareapp.ExtratoFragment
 import com.payshare.payshareapp.R
 import com.shared.holders.HolderExtrato
+import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class AdapterExtrato constructor() : RecyclerView.Adapter<HolderExtrato>() {
@@ -29,8 +30,7 @@ class AdapterExtrato constructor() : RecyclerView.Adapter<HolderExtrato>() {
     override fun onBindViewHolder(holder: HolderExtrato, position: Int) {
         // 3 adicionar o holder instanciado na outra classe
 
-        var dt = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-        holder.dataPagamento.text = (modelo[position].expirationDate).format(dt);
+        holder.dataPagamento.text = parseStringToDate((modelo[position].expirationDate))
         holder.descExtract.text = (modelo[position].description)
         holder.valorExtract.text = (modelo[position].amount.toString())
     }
@@ -41,5 +41,13 @@ class AdapterExtrato constructor() : RecyclerView.Adapter<HolderExtrato>() {
 
     fun addTransaction(trx: List<TransactionData>) {
         this.modelo = trx
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun parseStringToDate(date:String) : String{
+        val dateParse = LocalDateTime.parse(date)
+        val format = dateParse.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+
+        return format;
     }
 }
