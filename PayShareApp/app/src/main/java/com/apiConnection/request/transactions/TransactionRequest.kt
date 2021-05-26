@@ -15,6 +15,14 @@ interface TransactionRequest {
     ): Call<TransactionWalletResponse>
 
     @Headers("Content-Type: application/json")
+    @POST(value = "v1/payshare/transaction/{idUser}/{amount}")
+    fun createTransactionLobbyMercadoPago(
+        @Path("idUser") id: Int,
+        @Path("amount") amount: Double,
+        @Header("Authorization") token: String
+    ): Call<TransactionWalletResponse>
+
+    @Headers("Content-Type: application/json")
     @POST(value = "v1/payshare/transaction/wallet-lobby/{idUser}/{amount}")
     fun paymentWalletLobby(
         @Path("idUser") id: Int,
