@@ -87,6 +87,12 @@ class WalletFragment : Fragment() {
             }
         })
 
+
+        /// ===================================================
+
+
+        /// ===================================================
+
         val btnAdicionar : Button = view.findViewById(R.id.btn_adicionar_dinheiro)
         btnAdicionar.setOnClickListener(View.OnClickListener {
             val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()

@@ -2,6 +2,7 @@ package com.apiConnection
 
 import com.apiConnection.dataClassAdapter.transactions.TransactionData
 import com.apiConnection.request.lobby.LobbyRequest
+import com.apiConnection.request.payment.PaymentRequest
 import com.apiConnection.request.transactions.TransactionRequest
 import com.apiConnection.request.user.CadastroRequest
 import com.apiConnection.request.user.LoginRequest
@@ -70,11 +71,11 @@ object Conexao {
     }
 
     //
-    fun consulta(): TransactionRequest {
+    fun consulta(): PaymentRequest {
         return Retrofit.Builder()
             .baseUrl(backendPath)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(TransactionRequest::class.java)
+            .create(PaymentRequest::class.java)
     }
 }
