@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.apiConnection.Conexao
+import java.text.DecimalFormat
 
 
 class ExtratoFragment : Fragment() {
@@ -34,7 +35,8 @@ class ExtratoFragment : Fragment() {
 
         // ================== caso tenha valor e nome em cache  =======================
         var saldoContaShared: TextView = view.findViewById(R.id.txt_valor_saldo)
-        saldoContaShared.hint = "R$ ${moneyShared.toString()}"
+        val dec = DecimalFormat("#,###.00")
+        saldoContaShared.hint = if (moneyShared.toString() == "0.00") "R$ 0.00" else  "R$ ${dec.format(moneyShared)}"
         
         // ============================================================================
 

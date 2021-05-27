@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.fragment_hub.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DecimalFormat
 
 
 class HubFragment : Fragment() {
@@ -55,7 +56,8 @@ class HubFragment : Fragment() {
 
         // ================== caso tenha valor e nome em cache  =======================
         var saldoContaShared: TextView = view.findViewById(R.id.txt_valor_saldo)
-        saldoContaShared.hint = "R$ ${moneyShared.toString()}"
+        val dec = DecimalFormat("#,###.00")
+        saldoContaShared.hint = if (moneyShared.toString() == "0.00") "R$ 0.00" else  "R$ ${dec.format(moneyShared)}"
 
         var nomeUser: TextView = view.findViewById(R.id.name_user)
         nomeUser.text = nameUser
@@ -79,7 +81,8 @@ class HubFragment : Fragment() {
                             editor.putFloat("userAmount", data.userAmount.toFloat())
                             editor.apply()
                             nomeUser.text = nameUser
-                            saldoConta.hint = "R$ ${data.userAmount}"
+                            val dec = DecimalFormat("#,###.00")
+                            saldoConta.hint = if (data.userAmount == 0.00) "R$ 0.00" else  "R$ ${dec.format(data.userAmount)}"
                             Log.e("Sucesso", "Usuario" + Gson().toJson(data))
                         }
 
@@ -105,10 +108,12 @@ class HubFragment : Fragment() {
                             val editor = preferencias.edit()
                             val boxAtivaLobby : ScrollView = view.findViewById(R.id.box_lobby_ativa)
                             val lobbyName : TextView = view.findViewById(R.id.txt_nome_ativo_lobby)
+                            val idLobby : TextView = view.findViewById(R.id.txt_share_friends)
                             boxAtivaLobby.visibility = View.VISIBLE
                             editor.putString("idLobby", data.id.toString())
                             editor.apply()
                             lobbyName.text = "${data.lobbyDescription}"
+                            idLobby.text = "Codigo da sala: ${data.id.toString()}"
                             Log.e("Sucesso", "idLobbyyyyyy" + idLobby.toString())
                             Log.e("Sucesso", "lobbyUser" + Gson().toJson(data))
                         } else {
@@ -161,7 +166,8 @@ class HubFragment : Fragment() {
                                     editor.putFloat("userAmount", data.userAmount.toFloat())
                                     editor.apply()
                                     nomeUser.text = nameUser
-                                    saldoConta.hint = "R$ ${data.userAmount}"
+                                    val dec = DecimalFormat("#,###.00")
+                                    saldoConta.hint = if (data.userAmount == 0.00) "R$ 0.00" else  "R$ ${dec.format(data.userAmount)}"
                                     btnOculta.setImageResource(R.drawable.btn_show_money)
                                     btnEstado = true
                                 }
@@ -214,6 +220,23 @@ class HubFragment : Fragment() {
             transaction.replace(R.id.fragmentContainer, Sala_PagamentoFragment.newInstance())
             transaction.addToBackStack(null)
             transaction.commit()
+        }
+
+        val btnEntryLobby : AppCompatButton = view.findViewById(R.id.entry_lobby)
+        btnEntryLobby.setOnClickListener {
+            val transaction : FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.fragmentContainer, AdicionarParticipante.newInstance())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        val btnExtrato : ImageView = view.findViewById(R.id.img_extrato)
+        btnExtrato.setOnClickListener {
+            val transaction : FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.fragmentContainer, ExtratoFragment.newInstance())
+            transaction.addToBackStack(ExtratoFragment::class.java.simpleName)
+            transaction.commit()
+            (activity as BottomBarActivity).changeIcon(1)
         }
 
         return view

@@ -15,12 +15,15 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import com.apiConnection.Conexao
 import com.apiConnection.models.response.lobby.LobbyResponse
+import com.apiConnection.models.response.transaction.TransactionResponse
 import com.apiConnection.models.response.transaction.TransactionWalletResponse
 import com.apiConnection.models.response.user.UserResponse
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.math.BigDecimal
+import java.text.DecimalFormat
 
 
 class Sala_PagamentoFragment : Fragment() {
@@ -62,8 +65,9 @@ class Sala_PagamentoFragment : Fragment() {
                             val valorTotalRecebido: TextView =
                                 view.findViewById(R.id.valor_total_recebido)
                             Log.e("Sucesso", "Lobby" + Gson().toJson(data))
-                            valorTotalPagar.text = "R$ ${data.amount}"
-                            valorTotalRecebido.text = "R$ ${data.amountTotal}"
+                            val dec = DecimalFormat("#,###.00")
+                            valorTotalPagar.text = "R$ ${dec.format(data.amount)}"
+                            valorTotalRecebido.text = if (data.amountTotal == 0.00) "R$ 0.00" else  "R$ ${dec.format(data.amountTotal)}"
                             if (data.amount == data.amountTotal) {
                                 val btnFinalizar: Button = view.findViewById(R.id.btn_finalizar)
                                 btnFinalizar.visibility = View.VISIBLE
@@ -81,76 +85,6 @@ class Sala_PagamentoFragment : Fragment() {
         // ======================= PAGAMENTO LOBBY =========================
 
 
-//        btnPagar.setOnClickListener {
-//
-//            idUser?.toInt()?.let {
-//                findUserById.findUserById(it, "Bearer " + token.toString())
-//                    .enqueue(object : Callback<UserResponse> {
-//                        override fun onResponse(
-//                            call: Call<UserResponse>,
-//                            response: Response<UserResponse>
-//                        ) {
-//                            var data = response.body()
-//
-//                            if (data != null) {
-//                                Log.e("Sucesso", "usuariossssss" + Gson().toJson(data))
-//                                idUser?.toInt()?.let { id ->
-//                                    idUser
-//                                    transaction.paymentWalletLobby(
-//                                        id,
-//                                        data.userAmountLobby.toString().toDouble(),
-//                                        "Bearer " + token.toString()
-//                                    )
-//                                        .enqueue(object : Callback<TransactionResponse> {
-//                                            override fun onResponse(
-//                                                call: Call<TransactionResponse>,
-//                                                response: Response<TransactionResponse>
-//                                            ) {
-//                                                var codeStatus = response.code();
-//                                                var message = response.message()
-//                                                if (codeStatus == 401) {
-//                                                    Toast.makeText(
-//                                                        context,
-//                                                        "Não foi possivel realizar o pagamento saldo insuficiente!",
-//                                                        Toast.LENGTH_SHORT
-//                                                    ).show()
-//                                                }
-//                                                var data = response.body()
-//                                                if (data != null) {
-//                                                    Log.e("Sucesso", "teste pagamentoooo" + Gson().toJson(data))
-//                                                    Toast.makeText(
-//                                                        context,
-//                                                        "Pagamento realizado com sucesso!",
-//                                                        Toast.LENGTH_SHORT
-//                                                    ).show()
-//                                                }
-//                                            }
-//
-//                                            override fun onFailure(
-//                                                call: Call<TransactionResponse>,
-//                                                t: Throwable
-//                                            ) {
-//                                                Toast.makeText(
-//                                                    context,
-//                                                    "Não foi possivel realizar o pagamento!",
-//                                                    Toast.LENGTH_SHORT
-//                                                ).show()
-//                                                Log.e("Erro", "erro " + t.message)
-//                                            }
-//                                        })
-//                                }
-//                            }
-//
-//                        }
-//
-//                        override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-//                            Log.e("Erro", "erro " + t.message)
-//                        }
-//                    })
-//            }
-//
-//        }
-
         btnPagar.setOnClickListener {
 
             idUser?.toInt()?.let {
@@ -166,41 +100,38 @@ class Sala_PagamentoFragment : Fragment() {
                                 Log.e("Sucesso", "usuariossssss" + Gson().toJson(data))
                                 idUser?.toInt()?.let { id ->
                                     idUser
-                                    transaction.createTransactionLobbyMercadoPago(
+                                    transaction.paymentWalletLobby(
                                         id,
                                         data.userAmountLobby.toString().toDouble(),
                                         "Bearer " + token.toString()
                                     )
-                                        .enqueue(object : Callback<TransactionWalletResponse> {
+                                        .enqueue(object : Callback<TransactionResponse> {
                                             override fun onResponse(
-                                                call: Call<TransactionWalletResponse>,
-                                                body: Response<TransactionWalletResponse>
+                                                call: Call<TransactionResponse>,
+                                                response: Response<TransactionResponse>
                                             ) {
-                                                var codeStatus = body.code();
-                                                var message = body.message()
+                                                var codeStatus = response.code();
+                                                var message = response.message()
                                                 if (codeStatus == 401) {
                                                     Toast.makeText(
                                                         context,
-                                                        "Não foi possivel realizar!",
+                                                        "Não foi possivel realizar o pagamento saldo insuficiente!",
                                                         Toast.LENGTH_SHORT
                                                     ).show()
                                                 }
-
-                                                var data = body.body()
+                                                var data = response.body()
                                                 if (data != null) {
-                                                    val editor = preferencias.edit()
-                                                    Log.e("Sucesso", "Initpoint" + Gson().toJson(data))
-                                                    editor.putString("initPoint", data.body.initPoint)
-                                                    editor.apply()
-                                                    Log.e("Sucesso", "Transaction lobby " + Gson().toJson(data))
-                                                    val intent =
-                                                        Intent(context, MercadoPagoCheckout::class.java)
-                                                    startActivity(intent)
+                                                    Log.e("Sucesso", "teste pagamentoooo" + Gson().toJson(data))
+                                                    Toast.makeText(
+                                                        context,
+                                                        "Pagamento realizado com sucesso!",
+                                                        Toast.LENGTH_SHORT
+                                                    ).show()
                                                 }
                                             }
 
                                             override fun onFailure(
-                                                call: Call<TransactionWalletResponse>,
+                                                call: Call<TransactionResponse>,
                                                 t: Throwable
                                             ) {
                                                 Toast.makeText(
@@ -223,6 +154,79 @@ class Sala_PagamentoFragment : Fragment() {
             }
 
         }
+
+//        btnPagar.setOnClickListener {
+//
+//            idUser?.toInt()?.let {
+//                findUserById.findUserById(it, "Bearer " + token.toString())
+//                    .enqueue(object : Callback<UserResponse> {
+//                        override fun onResponse(
+//                            call: Call<UserResponse>,
+//                            response: Response<UserResponse>
+//                        ) {
+//                            var data = response.body()
+//
+//                            if (data != null) {
+//                                Log.e("Sucesso", "usuariossssss" + Gson().toJson(data))
+//                                idUser?.toInt()?.let { id ->
+//                                    idUser
+//                                    transaction.createTransactionLobbyMercadoPago(
+//                                        id,
+//                                        data.userAmountLobby.toString().toDouble(),
+//                                        "Bearer " + token.toString()
+//                                    )
+//                                        .enqueue(object : Callback<TransactionWalletResponse> {
+//                                            override fun onResponse(
+//                                                call: Call<TransactionWalletResponse>,
+//                                                body: Response<TransactionWalletResponse>
+//                                            ) {
+//                                                var codeStatus = body.code();
+//                                                var message = body.message()
+//                                                if (codeStatus == 401) {
+//                                                    Toast.makeText(
+//                                                        context,
+//                                                        "Não foi possivel realizar!",
+//                                                        Toast.LENGTH_SHORT
+//                                                    ).show()
+//                                                }
+//
+//                                                var data = body.body()
+//                                                if (data != null) {
+//                                                    val editor = preferencias.edit()
+//                                                    Log.e("Sucesso", "Initpoint" + Gson().toJson(data))
+//                                                    editor.putString("initPoint", data.body.initPoint)
+//                                                    editor.apply()
+//                                                    Log.e("Sucesso", "Transaction lobby " + Gson().toJson(data))
+//                                                    val intent =
+//                                                        Intent(context, MercadoPagoCheckout::class.java)
+//                                                    startActivity(intent)
+//                                                }
+//                                            }
+//
+//                                            override fun onFailure(
+//                                                call: Call<TransactionWalletResponse>,
+//                                                t: Throwable
+//                                            ) {
+//                                                Toast.makeText(
+//                                                    context,
+//                                                    "Não foi possivel realizar o pagamento!",
+//                                                    Toast.LENGTH_SHORT
+//                                                ).show()
+//                                                Log.e("Erro", "erro " + t.message)
+//                                            }
+//                                        })
+//                                }
+//                            }
+//
+//                        }
+//
+//                        override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+//                            Log.e("Erro", "erro " + t.message)
+//                        }
+//                    })
+//            }
+//
+//        }
 
         val btnFinalizar: Button = view.findViewById(R.id.btn_finalizar)
         btnFinalizar.setOnClickListener {

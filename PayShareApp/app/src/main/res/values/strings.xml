@@ -42,5 +42,5 @@
     <string name="cadastrar">Cadastrar</string>
     <string name="adicionar_dinheiro_desc">Adicionar Dinheiro</string>
     <string name="realize_transfer_ncias_de_valores_para_qualquer_conta_payshare_desc">Realize transferências de valores para qualquer conta payshare.</string>
-
+    <string name="entrar_lobby">Participe de uma sala de pagamento</string>
 </resources>
