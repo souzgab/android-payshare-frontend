@@ -2,6 +2,7 @@ package com.apiConnection.dataClassAdapter.transactions
 
 import com.google.gson.annotations.SerializedName
 import java.math.BigDecimal
+import java.time.LocalDateTime
 
 data class TransactionData (
     @SerializedName("transactionId") var transactionDate : Int,

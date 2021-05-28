@@ -100,23 +100,18 @@ class BottomBarActivity : AppCompatActivity() {
         when(id) {
             0 -> {
                 supportActionBar?.hide()
-                supportActionBar?.elevation = 100F
                 supportActionBar?.title = ""
             }
             1 -> {
-                supportActionBar?.elevation = 100F
                 supportActionBar?.title = "Extrato"
             }
             2 -> {
-                supportActionBar?.elevation = 100F
                 supportActionBar?.title = "Sala de Pagamento"
             }
             3 -> {
-                supportActionBar?.elevation = 100F
                 supportActionBar?.title = "Carteira"
             }
             4 -> {
-                supportActionBar?.elevation = 100F
                 supportActionBar?.title = "Perfil"
             } else -> {
                 supportActionBar?.title = ""
