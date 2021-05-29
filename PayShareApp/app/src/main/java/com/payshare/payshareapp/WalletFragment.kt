@@ -31,6 +31,7 @@ class WalletFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as BottomBarActivity).changeTitulo(3)
         val view:View = inflater.inflate(R.layout.fragment_wallet, container, false)
 
         //============= recuperando dados amarzenado em cache ========================
@@ -89,6 +90,12 @@ class WalletFragment : Fragment() {
             }
         })
 
+
+        /// ===================================================
+
+
+        /// ===================================================
+
         val btnAdicionar : Button = view.findViewById(R.id.btn_adicionar_dinheiro)
         btnAdicionar.setOnClickListener(View.OnClickListener {
             val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
@@ -96,6 +103,14 @@ class WalletFragment : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         })
+
+        val btnAdicionarFormaDePagamento: Button = view.findViewById(R.id.btn_adicionar_pagamento_forma)
+        btnAdicionarFormaDePagamento.setOnClickListener{
+            val transaction : FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.fragmentContainer, AdicionarFormaPagamentoFragment.newInstance())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
         return view
 

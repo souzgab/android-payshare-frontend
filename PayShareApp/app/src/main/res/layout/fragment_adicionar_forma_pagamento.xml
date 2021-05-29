@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/preto_payshare"
+    tools:context=".AdicionarFormaPagamentoFragment"
+    >
+
+
+<TextView
+        android:id="@+id/txt_adicioanar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/adicionar_forma_de_pagamento"
+        android:textColor="@color/white"
+        android:textSize="@dimen/large_title" />
+
+    <TextView
+        android:id="@+id/txt_describe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:layout_marginTop="20dp"
+        android:text="Adicione Cartões para facilitar sua experiência em pagamentos no Payshare"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
+
+
+
+    <EditText
+        android:id="@+id/et_NmrCartao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:hint="Digite o Numero do Cartão"
+        android:textSize="15dp"
+        android:textColorHint="@android:color/darker_gray"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/et_cvv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:hint="Digite o Codigo Verificador - (CVV)"
+        android:textSize="15dp"
+        android:textColorHint="@android:color/darker_gray"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/et_nomeCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:hint="Digite o Nome"
+        android:textSize="15dp"
+        android:textColorHint="@android:color/darker_gray"
+        android:ems="10"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etdataValidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:hint="Digite a data de Validade"
+        android:textSize="15dp"
+        android:textColorHint="@android:color/darker_gray"
+        android:ems="10"
+        android:inputType="date" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:id="@+id/rd_typePagamento"
+        >
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crédito"
+            android:layout_margin="5dp"
+            android:id="@+id/credito"
+            android:textColor="@android:color/darker_gray"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Débito"
+            android:id="@+id/debito"
+            android:layout_margin="5dp"
+            android:textColor="@android:color/darker_gray"
+            />
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btn_inserir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_button_normal"
+        android:text="Inserir"
+        android:textColor="@color/white" />
+
+
+</LinearLayout>

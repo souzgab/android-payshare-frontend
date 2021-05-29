@@ -12,23 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
         <activity
             android:name=".activity_card_sala_pagamento"
             android:label="@string/title_activity_card_sala_pagamento"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activity_card_extrato" />
         <activity android:name=".MercadoPagoCheckout" />
-        <activity android:name=".BottomBarActivity"
-                  android:parentActivityName=".LoginActivity"
-
-            />
-        <activity android:name=".LoginActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".CadastroActivity"
+        <activity
+            android:name=".BottomBarActivity"
             android:windowSoftInputMode="adjustPan|stateVisible"
+            android:parentActivityName=".LoginActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:windowSoftInputMode="adjustPan"
             />
-        <activity android:name=".SplashActivity" android:noHistory="true">
+        <activity
+            android:name=".CadastroActivity"
+            android:windowSoftInputMode="adjustPan|stateVisible" />
+        <activity
+            android:name=".SplashActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

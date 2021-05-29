@@ -37,6 +37,7 @@ class Sala_PagamentoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as BottomBarActivity).changeTitulo(2)
         val view: View = inflater.inflate(R.layout.fragment_sala_pagamento, container, false)
         //============= recuperando dados amarzenado em cache ========================
         preferencias =

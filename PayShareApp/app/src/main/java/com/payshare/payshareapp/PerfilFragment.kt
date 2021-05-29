@@ -28,6 +28,7 @@ class PerfilFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as BottomBarActivity).changeIcon(4)
         val view : View = inflater.inflate(R.layout.fragment_perfil, container, false)
         preferencias =
             this.requireActivity().getSharedPreferences("Auth", Context.MODE_PRIVATE)
@@ -35,7 +36,7 @@ class PerfilFragment : Fragment() {
         val token = preferencias.getString("Auth", null)
         var nameUser = preferencias.getString("nameUser", null)
         var emailUser = preferencias.getString("emailUser", null)
-
+        (activity as BottomBarActivity).changeTitulo(4)
         val email : TextView = view.findViewById(R.id.txt_dado_email)
         val nome : TextView = view.findViewById(R.id.txt_dado_nome)
 

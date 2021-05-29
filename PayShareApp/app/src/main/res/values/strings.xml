@@ -17,11 +17,11 @@
     <string name="confirmar_senha">Confirme sua senha</string>
     <string name="carteira">Carteira</string>
     <string name="adicionar_dinheiro">Adicionar dinheiro na carteira</string>
-    <string name="adicionar_pagamento">Adicionar pagamento</string>
+    <string name="adicionar_pagamento">Adicionar Cartão</string>
     <string name="saldo_carteira">200,00</string>
     <string name="forma_pagamento">Forma de pagamento</string>
     <string name="carta_avisos">Use o dinheiro da sua conta para realizar pagamentos compartilhado</string>
-    <string name="nome_user">Payshare Company Inc Acquisition</string>
+    <string name="nome_user">-</string>
     <string name="telefone_user">(11)94678-0989</string>
     <string name="email_user">payshare@gmail.com</string>
     <string name="li_e_concordo_com_os_termos_de_uso">Li e concordo com os termos de uso</string>
@@ -42,5 +42,7 @@
     <string name="cadastrar">Cadastrar</string>
     <string name="adicionar_dinheiro_desc">Adicionar Dinheiro</string>
     <string name="realize_transfer_ncias_de_valores_para_qualquer_conta_payshare_desc">Realize transferências de valores para qualquer conta payshare.</string>
+    <string name="title_activity_extrato_modelo">ExtratoModelo</string>
+    <string name="adicionar_forma_de_pagamento">Adicionar Cartão</string>
     <string name="entrar_lobby">Participe de uma sala de pagamento</string>
 </resources>
