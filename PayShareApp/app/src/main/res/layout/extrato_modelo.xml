@@ -9,11 +9,11 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/mainExtrato"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="90dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="5dp"
         app:cardBackgroundColor="@color/dark"
-        app:cardCornerRadius="20dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,16 +24,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
+
             <TextView
+                android:id="@+id/tv_DataPagamento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data:"
-                android:layout_marginStart="160dp"
-                android:textColor="@color/white"
+                android:layout_marginStart="260dp"
                 android:layout_marginTop="5dp"
-                android:textSize="15sp"
-                android:id="@+id/tv_DataPagamento"
-                />
+                android:text="20/08/2021"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
 
             <TextView
 
@@ -56,14 +56,14 @@
 
         <ImageView
             android:id="@+id/img_tipo_extrato"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="45dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/box_desc_extrato_layout"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/extrato_vermelho" />
+            app:srcCompat="@drawable/exit_money" />
 
         <TextView
             android:id="@+id/txt_desc_extrato"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:layout_marginTop="50dp"
-            android:text="--------------"
+            android:text="Vinicius Alves"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,10 +81,10 @@
             android:id="@+id/valor_gasto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="70dp"
-            android:text="------"
-            android:textColor="@color/white"
+            android:layout_marginStart="260dp"
+            android:layout_marginTop="50dp"
+            android:text="R$ 0,00"
+            android:textColor="@color/verde_payshare"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_desc_extrato" />
