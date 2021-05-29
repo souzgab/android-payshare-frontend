@@ -44,5 +44,5 @@
     <string name="realize_transfer_ncias_de_valores_para_qualquer_conta_payshare_desc">Realize transferências de valores para qualquer conta payshare.</string>
     <string name="title_activity_extrato_modelo">ExtratoModelo</string>
     <string name="adicionar_forma_de_pagamento">Adicionar Cartão</string>
-
+    <string name="entrar_lobby">Participe de uma sala de pagamento</string>
 </resources>

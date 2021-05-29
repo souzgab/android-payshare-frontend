@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_wallet.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DecimalFormat
 
 
 class WalletFragment : Fragment() {
@@ -35,7 +36,7 @@ class WalletFragment : Fragment() {
 
         //============= recuperando dados amarzenado em cache ========================
         preferencias =
-            this.activity!!.getSharedPreferences("Auth", Context.MODE_PRIVATE)
+            this.requireActivity().getSharedPreferences("Auth", Context.MODE_PRIVATE)
         val idUser = preferencias.getString("idUser", null)
         val token = preferencias.getString("Auth", null)
         var nameUser = preferencias.getString("nameUser", null)
@@ -43,7 +44,8 @@ class WalletFragment : Fragment() {
         // ============================================================================
         // ================== caso tenha valor e nome em cache  =======================
         var saldoContaShared: TextView = view.findViewById(R.id.valor_carteira)
-        saldoContaShared.hint = "R$ ${moneyShared.toString()}"
+        val dec = DecimalFormat("#,###.00")
+        saldoContaShared.hint = if (moneyShared.toString() == "0.00") "R$ 0.00" else  "R$ ${dec.format(moneyShared)}"
 
         // ============================================================================
         /// ESTA PARTE FAZ UM BUSCA NO BANCO PARA REVELAR O DINHEIRO
@@ -72,7 +74,8 @@ class WalletFragment : Fragment() {
                                         view.findViewById(R.id.valor_carteira)
                                     editor.putFloat("userAmount", data.userAmount.toFloat())
                                     editor.apply()
-                                    saldoConta.hint = "R$ ${data.userAmount}"
+                                    val dec = DecimalFormat("#,###.00")
+                                    saldoConta.hint = if (data.userAmount == 0.00) "R$ 0.00" else  "R$ ${dec.format(data.userAmount)}"
                                     btnOculta.setImageResource(R.drawable.btn_show_money)
                                     btnEstado = true
                                 }

@@ -31,4 +31,20 @@ interface LobbyRequest {
         @Path("id") id: Int,
         @Header("Authorization") token: String
     ): Call<LobbyResponse>
+
+    @Headers("Content-Type: application/json")
+    @POST(value = "v1/payshare/lobby/{idLobby}/{idUser}")
+    fun addUserLobby(
+        @Path("idLobby") idLobby: Int,
+        @Path("idUser") idUser : Int,
+        @Header("Authorization") token: String
+    ): Call<LobbyResponse>
+
+    @Headers("Content-Type: application/json")
+    @GET(value = "v1/payshare/lobby/{id}")
+    fun findLobbyById(
+        @Path("id") id: Int,
+        @Header("Authorization") token: String
+    ): Call<LobbyResponse>
+
 }

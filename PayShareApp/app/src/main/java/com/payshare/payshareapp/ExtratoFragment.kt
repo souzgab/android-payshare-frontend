@@ -17,6 +17,7 @@ import com.shared.adapters.AdapterExtrato
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DecimalFormat
 
 
 class ExtratoFragment : Fragment() {
@@ -46,7 +47,8 @@ class ExtratoFragment : Fragment() {
 
         // ================== caso tenha valor e nome em cache  =======================
         var saldoContaShared: TextView = view.findViewById(R.id.txt_valor_saldo)
-        saldoContaShared.hint = "R$ ${moneyShared.toString()}"
+        val dec = DecimalFormat("#,###.00")
+        saldoContaShared.hint = if (moneyShared.toString() == "0.00") "R$ 0.00" else  "R$ ${dec.format(moneyShared)}"
         
         // ============================================================================
 
