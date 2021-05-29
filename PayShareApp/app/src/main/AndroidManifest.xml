@@ -20,10 +20,12 @@
         <activity android:name=".MercadoPagoCheckout" />
         <activity
             android:name=".BottomBarActivity"
+            android:windowSoftInputMode="adjustPan|stateVisible"
             android:parentActivityName=".LoginActivity" />
         <activity
             android:name=".LoginActivity"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"
+            />
         <activity
             android:name=".CadastroActivity"
             android:windowSoftInputMode="adjustPan|stateVisible" />

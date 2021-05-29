@@ -11,17 +11,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentTransaction
 import com.apiConnection.Conexao
-import com.apiConnection.models.response.transaction.TransactionWalletResponse
-import com.apiConnection.models.response.user.UserResponse
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_adicionar_dinheiro.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+import com.apiConnection.models.response.transaction.TransactionWalletResponse
 
 class AdicionarDinheiroFragment : Fragment() {
 
@@ -80,7 +75,7 @@ class AdicionarDinheiroFragment : Fragment() {
                                         val editor = preferencias.edit()
                                         editor.putString("initPoint", data.body.initPoint)
                                         editor.apply()
-                                        Log.e("Sucesso", "Transaction wallet aquiii " + Gson().toJson(data))
+                                        Log.e("Sucesso", "Transaction wallet" + Gson().toJson(data))
                                         val intent =
                                             Intent(context, MercadoPagoCheckout::class.java)
                                         startActivity(intent)

@@ -2,6 +2,7 @@ package com.apiConnection.request.payment
 
 import com.apiConnection.dataClassAdapter.lobby.LobbyDataBody
 import com.apiConnection.dataClassAdapter.payments.PaymentFindCard
+import com.apiConnection.dataClassAdapter.payments.PaymentPostCard
 import com.apiConnection.models.response.lobby.LobbyResponse
 import com.apiConnection.models.response.payment.PaymentFindCardByIdResponse
 import com.apiConnection.models.response.payment.PaymentFindCardResponse
@@ -16,4 +17,9 @@ interface PaymentRequest {
     @Headers("Content-Type: application/json")
     @GET(value = "card/{idUser}")
     fun findCardByUserId(@Path("idUser") id: Int): Call<PaymentFindCardByIdResponse>
+
+    @Headers("Content-Type: application/json")
+    @POST(value = "card/generate")
+    fun postCard(@Body card: PaymentPostCard): Call<Any>
+
 }

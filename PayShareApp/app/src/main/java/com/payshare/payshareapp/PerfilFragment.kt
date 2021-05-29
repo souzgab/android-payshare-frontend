@@ -28,7 +28,7 @@ class PerfilFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        (activity as BottomBarActivity).changeIcon(4)
         val view : View = inflater.inflate(R.layout.fragment_perfil, container, false)
         preferencias =
             this.requireActivity().getSharedPreferences("Auth", Context.MODE_PRIVATE)

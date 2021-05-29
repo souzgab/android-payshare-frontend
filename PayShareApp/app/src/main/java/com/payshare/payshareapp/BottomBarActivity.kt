@@ -26,8 +26,6 @@ class BottomBarActivity : AppCompatActivity() {
         setSupportActionBar(tb_toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-
-
         bottomNavigation.add(MeowBottomNavigation.Model(0, R.drawable.ic_home))
         bottomNavigation.add(MeowBottomNavigation.Model(1, R.drawable.extrato))
         bottomNavigation.add(MeowBottomNavigation.Model(2, R.drawable.ic_logo))

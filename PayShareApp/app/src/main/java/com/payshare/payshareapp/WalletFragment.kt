@@ -101,6 +101,14 @@ class WalletFragment : Fragment() {
             transaction.commit()
         })
 
+        val btnAdicionarFormaDePagamento: Button = view.findViewById(R.id.btn_adicionar_pagamento_forma)
+        btnAdicionarFormaDePagamento.setOnClickListener{
+            val transaction : FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.fragmentContainer, AdicionarFormaPagamentoFragment.newInstance())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
         return view
 
     }
