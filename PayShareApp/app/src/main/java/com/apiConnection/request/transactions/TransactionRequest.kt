@@ -39,4 +39,11 @@ interface TransactionRequest {
         @Header("Authorization") token: String
     ): Call<TransactionResponse>
 
+    @Headers("Content-Type: application/json")
+    @POST(value = "v1/payshare/transaction/card-lobby/{idUser}/{amount}")
+    fun paymentCard (
+        @Path("idUser") id: Int,
+        @Path("amount") amount: Double,
+        @Header("Authorization") token: String
+    ): Call<TransactionResponse>
 }

@@ -54,10 +54,10 @@ class AdicionarFormaPagamentoFragment : Fragment() {
                 val builder = AlertDialog.Builder(view.context)
 
                 // set title
-                builder.setTitle("Adição de valor na carteira")
+                builder.setTitle("Adição de Cartão")
 
                 //set content area
-                builder.setMessage("Tem certeza que deseja adicionar R$ ${card.cardNumber} em sua carteira ?")
+                builder.setMessage("Deseja adicionar Cartão: ${card.cardNumber} em sua carteira ?")
 
                 builder.setPositiveButton(
                     "Confirmar"
@@ -68,7 +68,9 @@ class AdicionarFormaPagamentoFragment : Fragment() {
                         Callback<Any> {
                         override fun onResponse(call: Call<Any>, response: Response<Any>) {
                             if (response.isSuccessful) {
-
+                                preferencias.edit()
+                                    .putString("cardNumber", card.cardNumber)
+                                    .putString("cvv", card.cvv).apply()
                                 fragmentManager!!.beginTransaction().replace(
                                     R.id.fragmentContainer,
                                     WalletFragment.newInstance()
@@ -100,12 +102,19 @@ class AdicionarFormaPagamentoFragment : Fragment() {
             }
         }
 
+        view.findViewById<Button>(R.id.btn_escolherCartaoAd).setOnClickListener {
+            requireFragmentManager().beginTransaction().replace(
+                R.id.fragmentContainer,
+                EncontrarCartaoFragment.newInstance()
+            ).commit()
+        }
+
         return view
     }
 
     private fun getCardOnView(view: View): PaymentPostCard? {
-        if (idUser != null) {
-            return PaymentPostCard(
+        return if (idUser != null) {
+            PaymentPostCard(
                 idUser.toInt(),
                 view.findViewById<EditText>(R.id.et_cvv).text.toString(),
                 view.findViewById<EditText>(R.id.et_NmrCartao).text.toString(),
@@ -114,7 +123,7 @@ class AdicionarFormaPagamentoFragment : Fragment() {
                 radio.text.toString()
             )
         } else {
-            return null
+            null
         }
     }
 

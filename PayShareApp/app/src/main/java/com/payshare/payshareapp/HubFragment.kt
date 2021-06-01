@@ -53,7 +53,6 @@ class HubFragment : Fragment() {
         var moneyShared = preferencias.getFloat("userAmount", 0.00F)
         var idLobby = preferencias.getString("idLobby", null)
         // ============================================================================
-        Log.println(Log.INFO, "txty", preferencias.toString())
         // ================== caso tenha valor e nome em cache  =======================
         var saldoContaShared: TextView = view.findViewById(R.id.txt_valor_saldo)
         val dec = DecimalFormat("#,###.00")

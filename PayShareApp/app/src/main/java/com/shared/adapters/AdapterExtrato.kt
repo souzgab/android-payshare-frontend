@@ -37,7 +37,7 @@ class AdapterExtrato constructor() : RecyclerView.Adapter<HolderExtrato>() {
     }
 
     override fun getItemCount(): Int {
-        return modelo.size
+        return if (modelo.isNotEmpty()) modelo.size else 0
     }
 
     fun addTransaction(trx: List<TransactionData>) {

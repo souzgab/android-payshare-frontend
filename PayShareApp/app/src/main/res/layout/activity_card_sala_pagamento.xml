@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/preto_payshare"
     tools:context=".activity_card_sala_pagamento">
 
@@ -85,8 +85,8 @@
                         android:id="@+id/img_user_hub"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_marginEnd="280dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginEnd="280dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/nome_user_pagamento"
                         app:srcCompat="@drawable/profile_men" />

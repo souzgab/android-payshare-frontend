@@ -140,7 +140,6 @@
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-
                 app:layout_constraintBottom_toTopOf="@id/checkbox" />
 
             <androidx.appcompat.widget.AppCompatCheckBox

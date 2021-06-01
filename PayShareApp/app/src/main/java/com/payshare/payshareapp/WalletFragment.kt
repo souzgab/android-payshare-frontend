@@ -32,7 +32,25 @@ class WalletFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         (activity as BottomBarActivity).changeTitulo(3)
-        val view:View = inflater.inflate(R.layout.fragment_wallet, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_wallet, container, false)
+        preferencias = this.requireActivity().getSharedPreferences("Auth", Context.MODE_PRIVATE)
+        //Setando cartão Padrão
+
+        Log.println(Log.INFO, "sd", preferencias.all.toString())
+
+        val cardNumber = preferencias.getString("cardNumber", null)
+        val cvv = preferencias.getString("cvv", null)
+        val cardName = preferencias.getString("cardName", null)
+        val cardNumberFourStart = preferencias.getString("cardNumberFourStart", null)
+        val cardNumberFourEnd = preferencias.getString("cardNumberFourEnd", null)
+        val expiryDate = preferencias.getString("expiryDate", null)
+        val type = preferencias.getString("type", null)
+
+        view.findViewById<TextView>(R.id.txt_cardNameWallet).text = cardName
+        view.findViewById<TextView>(R.id.cardNumberWallet).text = "$cardNumberFourStart ******** $cardNumberFourEnd"
+        view.findViewById<TextView>(R.id.tipo_cartaoWallet).text = type
+
+        // == >
 
         //============= recuperando dados amarzenado em cache ========================
         preferencias =
@@ -93,12 +111,22 @@ class WalletFragment : Fragment() {
 
         /// ===================================================
 
+        if (cardNumberFourStart != null) {
+            when {
+                cardNumberFourStart.startsWith("4") -> {
+                    view.findViewById<ImageView>(R.id.img_cartaoWallet).setImageResource(R.drawable.visa_card)
+                }
+                cardNumberFourStart.startsWith("5") -> {
+                    view.findViewById<ImageView>(R.id.img_cartaoWallet).setImageResource(R.drawable.master_card)
+                }
+            }
+        }
 
         /// ===================================================
 
         val btnAdicionar : Button = view.findViewById(R.id.btn_adicionar_dinheiro)
         btnAdicionar.setOnClickListener(View.OnClickListener {
-            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+            val transaction : FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.replace(R.id.fragmentContainer, AdicionarDinheiroFragment.newInstance())
             transaction.addToBackStack(null)
             transaction.commit()
