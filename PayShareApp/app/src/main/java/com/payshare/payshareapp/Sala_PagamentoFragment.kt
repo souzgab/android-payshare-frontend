@@ -3,6 +3,7 @@ package com.payshare.payshareapp
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -29,6 +30,7 @@ import java.text.DecimalFormat
 class Sala_PagamentoFragment : Fragment() {
 
     private val findByLobbyUser = Conexao.findByLobbyUser()
+    private val conn = Conexao
     private val findUserById = Conexao.findUserById()
     private val transaction = Conexao.createTransactionWallet()
     lateinit var preferencias: SharedPreferences
@@ -59,6 +61,7 @@ class Sala_PagamentoFragment : Fragment() {
                         call: Call<LobbyResponse>,
                         response: Response<LobbyResponse>
                     ) {
+                        val btnFinalizar: Button = view.findViewById(R.id.btn_finalizar)
                         var data = response.body()
                         if (data != null) {
                             val editor = preferencias.edit()
@@ -69,10 +72,50 @@ class Sala_PagamentoFragment : Fragment() {
                             val dec = DecimalFormat("#,###.00")
                             valorTotalPagar.text = "R$ ${dec.format(data.amount)}"
                             valorTotalRecebido.text = if (data.amountTotal == 0.00) "R$ 0.00" else  "R$ ${dec.format(data.amountTotal)}"
-                            if (data.amount == data.amountTotal) {
-                                val btnFinalizar: Button = view.findViewById(R.id.btn_finalizar)
-                                btnFinalizar.visibility = View.VISIBLE
-                                btnPagar.visibility = View.INVISIBLE
+                            if(data.amountTotal >= 0) {
+                                if(data.amountTotal != data.amount) {
+                                    conn.findUserById().findUserById(idUser.toInt(), "Bearer $token")
+                                        .enqueue(object : Callback<UserResponse>{
+                                            override fun onResponse(
+                                                call: Call<UserResponse>,
+                                                response: Response<UserResponse>
+                                            ) {
+                                                var userData = response.body()
+
+                                                if(userData != null) {
+                                                    Log.println(Log.INFO, "sda", userData.toString())
+
+                                                    if(userData.userAmountLobby ==  0.0) {
+                                                        var id: Int = resources.getIdentifier("bg_button_clear_red", "drawable", activity?.packageName)
+                                                        btnFinalizar.isClickable = false
+                                                        btnFinalizar.background = resources.getDrawable(id)
+                                                        btnFinalizar.text = "Aguardando outros Pagamentos"
+                                                        btnFinalizar.setTextColor(
+                                                            Color.parseColor("#f0f0f0"))
+                                                        btnFinalizar.visibility = View.VISIBLE
+                                                        btnPagar.visibility = View.GONE
+                                                    }
+                                                }
+                                            }
+
+                                            override fun onFailure(
+                                                call: Call<UserResponse>,
+                                                t: Throwable
+                                            ) {
+                                                Log.e("Erro", "erro " + t.message)
+                                            }
+
+                                        })
+                                } else {
+                                    Log.println(Log.INFO, "sd222a", data.toString())
+                                    var id: Int = resources.getIdentifier("bg_button_normal", "drawable",  activity?.packageName)
+                                    btnFinalizar.isClickable = true
+                                    btnFinalizar.background = resources.getDrawable(id)
+                                    btnFinalizar.text = "Finalizar Lobby"
+                                    btnFinalizar.setTextColor(Color.parseColor("#f0f0f0"))
+                                    btnPagar.visibility = View.GONE
+                                    btnFinalizar.visibility = View.VISIBLE
+                                }
                             }
                         }
                     }

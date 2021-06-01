@@ -38,7 +38,6 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        android:checkedButton="@+id/wallet"
         android:id="@+id/rd_typePagamentoPre"
         >
         <RadioButton
@@ -195,7 +194,13 @@
         android:text="Pagar"
         android:textColor="@color/white" />
 
-
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:visibility="gone"
+        android:id="@+id/pgPre"
+        />
 
 
 </LinearLayout>

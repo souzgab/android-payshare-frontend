@@ -72,6 +72,14 @@ class EncontrarCartaoFragment: Fragment() {
                             override fun onResponse(call: Call<PaymentFindCardResponse>, response: Response<PaymentFindCardResponse>) {
                                 if (response.isSuccessful) {
 
+                                    editor.putString("cardNumber", "")
+                                    editor.putString("cardName", "")
+                                    editor.putString("cardNumberFourStart", "")
+                                    editor.putString("cardNumberFourEnd", "")
+                                    editor.putString("expiryDate", "")
+                                    editor.putString("type", "")
+                                    editor.apply()
+
                                     var data = response.body()
 
                                     if (data != null) {
@@ -142,6 +150,7 @@ class EncontrarCartaoFragment: Fragment() {
             view.findViewById<Button>(R.id.limparPesquisa).visibility = View.INVISIBLE
 
             editor.putString("cardNumber", "")
+            editor.putString("cardName", "")
             editor.putString("cardNumberFourStart", "")
             editor.putString("cardNumberFourEnd", "")
             editor.putString("expiryDate", "")
