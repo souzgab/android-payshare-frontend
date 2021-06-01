@@ -1,7 +1,6 @@
 package com.payshare.payshareapp
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
@@ -14,16 +13,17 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.apiConnection.Conexao
 import com.apiConnection.models.response.lobby.LobbyResponse
 import com.apiConnection.models.response.transaction.TransactionResponse
-import com.apiConnection.models.response.transaction.TransactionWalletResponse
 import com.apiConnection.models.response.user.UserResponse
 import com.google.gson.Gson
+import com.shared.adapters.AdapterSala
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.math.BigDecimal
 import java.text.DecimalFormat
 
 
@@ -34,6 +34,11 @@ class Sala_PagamentoFragment : Fragment() {
     private val findUserById = Conexao.findUserById()
     private val transaction = Conexao.createTransactionWallet()
     lateinit var preferencias: SharedPreferences
+    lateinit var rvDinamic: RecyclerView
+    lateinit var salaAdapter: AdapterSala
+    lateinit var idUser: String
+    lateinit var token: String
+    lateinit var idLobby : String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,14 +49,28 @@ class Sala_PagamentoFragment : Fragment() {
         //============= recuperando dados amarzenado em cache ========================
         preferencias =
             this.requireActivity().getSharedPreferences("Auth", Context.MODE_PRIVATE)
-        val idUser = preferencias.getString("idUser", null)
-        val token = preferencias.getString("Auth", null)
+        idUser = preferencias.getString("idUser", null)!!
+        token = preferencias.getString("Auth", null)!!
         var nameUser = preferencias.getString("nameUser", null)
         var moneyShared = preferencias.getFloat("userAmount", 0.00F)
-        var idLobby = preferencias.getString("idLobby", null)
+        idLobby = preferencias.getString("idLobby", null)!!
+
+        //============= recuperando recycleView ========================
+        rvDinamic = view.findViewById(R.id.rv_extrato)
+        var layout = LinearLayoutManager(this.context)
+        layout.orientation = RecyclerView.VERTICAL
+        rvDinamic.layoutManager = layout
+        listParticipantes()
+        salaAdapter = AdapterSala(this)
+        salaAdapter.notifyDataSetChanged()
+        //========================================================
+
+
 
         // ============================================================================
         val btnPagar: Button = view.findViewById(R.id.btn_pagar_lobby)
+
+
 
         //========= Busca informações da lobby do usuario ======================================
         idUser?.toInt()?.let {
@@ -318,6 +337,23 @@ class Sala_PagamentoFragment : Fragment() {
         }
 
         return view
+    }
+
+    fun listParticipantes(){
+        findByLobbyUser.findLobbyById(this.idLobby.toInt(),"Bearer $token").enqueue(object :
+            Callback<LobbyResponse> {
+            override fun onResponse(call: Call<LobbyResponse>, response: Response<LobbyResponse>) {
+                var data = response.body()
+                if (data != null) {
+                    salaAdapter.addTransaction(data.userPfList)
+                }
+                rvDinamic.adapter = salaAdapter
+            }
+
+            override fun onFailure(call: Call<LobbyResponse>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 
     companion object {

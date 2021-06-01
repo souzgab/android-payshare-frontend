@@ -30,29 +30,15 @@
                     android:id="@+id/card_sala_pagamento"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:layout_marginTop="5dp"
                     app:cardBackgroundColor="@color/gray"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
-
-
-                    <TextView
-                        android:id="@+id/nome_user_pagamento"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Usuario01"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/txt_valor_pagar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="160dp"
+                        android:layout_marginStart="180dp"
                         android:layout_marginTop="5dp"
                         android:text="Valor á pagar:"
                         android:textColor="@color/white"
@@ -64,7 +50,7 @@
                         android:id="@+id/valor_pagar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="250dp"
+                        android:layout_marginStart="290dp"
                         android:layout_marginTop="5dp"
                         android:text="200,00"
                         android:textColor="@color/verde_payshare"
@@ -98,19 +84,19 @@
                     <ImageView
                         android:id="@+id/img_user_hub"
                         android:layout_width="50dp"
-                        android:layout_height="30dp"
+                        android:layout_height="50dp"
                         android:layout_marginEnd="280dp"
                         android:layout_marginTop="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/nome_user_pagamento"
-                        app:srcCompat="@drawable/img_user" />
+                        app:srcCompat="@drawable/profile_men" />
 
                     <TextView
                         android:id="@+id/status_pagamento"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="60dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="200dp"
+                        android:layout_marginTop="20dp"
                         android:text="Pago"
                         android:textColor="@color/verde_payshare"
                         android:textSize="16sp"
@@ -118,28 +104,16 @@
                         app:layout_constraintTop_toBottomOf="@+id/nome_user_pagamento" />
 
                     <TextView
-                        android:id="@+id/desc_pagamento"
+                        android:id="@+id/nome_user_pagamento"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="60dp"
-                        android:layout_marginTop="25dp"
-                        android:text="Pagamento do cartão"
+                        android:layout_marginStart="65dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Usuario01"
                         android:textColor="@color/white"
                         android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/status_pagamento" />
-
-                    <TextView
-                        android:id="@+id/data_hora_pagamento"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="60dp"
-                        android:layout_marginTop="40dp"
-                        android:text="Data Pagamento: 25/01/2021"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/desc_pagamento" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.cardview.widget.CardView>
             </LinearLayout>

@@ -62,7 +62,7 @@ class AdicionarParticipante : Fragment() {
 
                                 val builder = AlertDialog.Builder(view.context)
                                 // set title
-                                builder.setTitle("Adição de valor na carteira")
+                                builder.setTitle("Participar!")
 
                                 //set content area
                                 builder.setMessage("Tem certeza que deseja entrar na sala ${data.lobbyDescription} ?")
@@ -105,6 +105,12 @@ class AdicionarParticipante : Fragment() {
                                                         transaction.addToBackStack(null)
                                                         transaction.commit()
                                                         (activity as BottomBarActivity).changeIcon(2)
+                                                    } else {
+                                                        Toast.makeText(
+                                                            context,
+                                                            "Não foi possivel entrar na lobby / lobby já esta em andamento",
+                                                            Toast.LENGTH_LONG
+                                                        ).show()
                                                     }
 
                                                 }
