@@ -71,10 +71,12 @@ class AdicionarFormaPagamentoFragment : Fragment() {
                                 preferencias.edit()
                                     .putString("cardNumber", card.cardNumber)
                                     .putString("cvv", card.cvv).apply()
+                                Log.println(Log.INFO, "card", card.cardNumber)
                                 fragmentManager!!.beginTransaction().replace(
                                     R.id.fragmentContainer,
                                     WalletFragment.newInstance()
                                 ).commit()
+
                                 Toast.makeText(context, "Sucesso!", Toast.LENGTH_SHORT).show()
                             }
                         }

@@ -236,7 +236,7 @@ class EscolherFormaPagamentoFragment : Fragment() {
 
                R.id.wallet -> {
                    view.findViewById<TextView>(R.id.et_nomeCartaoPre).visibility = View.VISIBLE
-                   view.findViewById<CardView>(R.id.box_pagamentoPre).visibility = View.INVISIBLE
+                   view.findViewById<CardView>(R.id.box_pagamentoPre).visibility = View.GONE
 
                    // Pagamento Setado para Wallet
                    view.findViewById<Button>(R.id.btn_pagarPre).setOnClickListener {

@@ -15,6 +15,8 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.FragmentTransaction
 import com.apiConnection.Conexao
+import com.apiConnection.dataClassAdapter.payments.PaymentFindCard
+import com.apiConnection.models.response.payment.PaymentFindCardResponse
 import com.apiConnection.models.response.user.UserResponse
 import kotlinx.android.synthetic.main.fragment_wallet.*
 import retrofit2.Call
@@ -26,6 +28,7 @@ import java.text.DecimalFormat
 class WalletFragment : Fragment() {
     private val findUserById = Conexao.findUserById()
     lateinit var preferencias: SharedPreferences
+    private val conn = Conexao
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,9 +49,39 @@ class WalletFragment : Fragment() {
         val expiryDate = preferencias.getString("expiryDate", null)
         val type = preferencias.getString("type", null)
 
-        view.findViewById<TextView>(R.id.txt_cardNameWallet).text = cardName
-        view.findViewById<TextView>(R.id.cardNumberWallet).text = "$cardNumberFourStart ******** $cardNumberFourEnd"
-        view.findViewById<TextView>(R.id.tipo_cartaoWallet).text = type
+        var card = PaymentFindCard(cardNumber!!,cvv!!)
+        var dateInit = ""
+        var dateEnd = ""
+
+        conn.wallet().findCard(card).enqueue(object : Callback<PaymentFindCardResponse>{
+            override fun onResponse(
+                call: Call<PaymentFindCardResponse>,
+                response: Response<PaymentFindCardResponse>
+            ) {
+                val data = response.body()
+                if(data != null) {
+                    dateInit = data.expiryDate.substring(0, 2)
+                    dateEnd =  data.expiryDate.substring(2, 4)
+                    val editor = preferencias.edit()
+                    editor.putString("cardNumber", data.cardNumber)
+                    editor.putString("cardName", data.cardName)
+                    editor.putString("cardNumberFourStart", data.cardNumberFourStart)
+                    editor.putString("cardNumberFourEnd", data.cardNumberFourEnd)
+                    editor.putString("expiryDate", data.expiryDate)
+                    editor.putString("type", data.type)
+                    editor.apply()
+
+                    view.findViewById<TextView>(R.id.txt_cardNameWallet).text = cardName
+                    view.findViewById<TextView>(R.id.cardNumberWallet).text = "$cardNumberFourStart ******** $cardNumberFourEnd"
+                    view.findViewById<TextView>(R.id.tipo_cartaoWallet).text = type
+                }
+
+            }
+
+            override fun onFailure(call: Call<PaymentFindCardResponse>, t: Throwable) {
+                Log.e("Erro", "erro " + t.message)
+            }
+        })
 
         // == >
 
